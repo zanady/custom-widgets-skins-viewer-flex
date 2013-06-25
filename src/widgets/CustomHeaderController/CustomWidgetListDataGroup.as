@@ -29,7 +29,7 @@ public class CustomWidgetListDataGroup extends DataGroup
     {
         super();
 
-        this.itemRenderer = new ClassFactory(WidgetListItemRenderer);
+        this.itemRenderer = new ClassFactory(CustomWidgetListItemRenderer);
     }
 }
 
