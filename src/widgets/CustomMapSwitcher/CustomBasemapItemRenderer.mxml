@@ -10,7 +10,7 @@
             {
                 super.data = value;
 
-                const basemap:Basemap = value as Basemap;
+                const basemap:CustomBasemap = value as CustomBasemap;
                 if (basemap)
                 {
                     displayImage.source = basemap.thumbnail;
