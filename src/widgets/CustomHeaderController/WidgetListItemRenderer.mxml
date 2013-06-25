@@ -19,7 +19,7 @@
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009"
                 xmlns:s="library://ns.adobe.com/flex/spark"
                 xmlns:mx="library://ns.adobe.com/flex/mx"
-                xmlns:HeaderController="widgets.HeaderController.*"
+                xmlns:CustomHeaderController="widgets.CustomHeaderController.*"
                 width="100%"
                 autoDrawBackground="false"
                 buttonMode="true"
@@ -133,7 +133,7 @@
                 <s:Image id="icon"
                          width="25" height="25"
                          smooth="true"/>
-                <HeaderController:WidgetUnderline id="underline"/>
+                <CustomHeaderController:WidgetUnderline id="underline"/>
             </s:VGroup>
             <s:Label id="widgetLabel"
                      width="100%"

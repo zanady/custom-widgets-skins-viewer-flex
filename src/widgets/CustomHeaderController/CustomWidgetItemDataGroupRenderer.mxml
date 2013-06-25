@@ -19,7 +19,7 @@
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009"
                 xmlns:s="library://ns.adobe.com/flex/spark"
                 xmlns:mx="library://ns.adobe.com/flex/mx"
-                xmlns:HeaderController="widgets.HeaderController.*"
+                xmlns:CustomHeaderController="widgets.CustomHeaderController.*"
                 autoDrawBackground="false"
                 buttonMode="true"
                 click="itemrenderer_clickHandler(event)"
@@ -146,7 +146,7 @@
                  mouseOver="mouseOverHandler(event)"
                  smooth="true"
                  useHandCursor="true"/>
-        <HeaderController:WidgetUnderline id="underline"/>
+        <CustomHeaderController:WidgetUnderline id="underline"/>
     </s:VGroup>
 
 </s:ItemRenderer>
