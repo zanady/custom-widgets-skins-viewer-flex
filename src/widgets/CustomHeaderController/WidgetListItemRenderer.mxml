@@ -133,7 +133,7 @@
                 <s:Image id="icon"
                          width="25" height="25"
                          smooth="true"/>
-                <CustomHeaderController:WidgetUnderline id="underline"/>
+                <CustomHeaderController:CustomWidgetUnderline id="underline"/>
             </s:VGroup>
             <s:Label id="widgetLabel"
                      width="100%"

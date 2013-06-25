@@ -146,7 +146,7 @@
                  mouseOver="mouseOverHandler(event)"
                  smooth="true"
                  useHandCursor="true"/>
-        <CustomHeaderController:WidgetUnderline id="underline"/>
+        <CustomHeaderController:CustomWidgetUnderline id="underline"/>
     </s:VGroup>
 
 </s:ItemRenderer>
