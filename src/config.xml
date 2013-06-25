@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//
+// Read more about ArcGIS Viewer for Flex - http://links.esri.com/flexviewer
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
+<configuration>
+    <title>ArcGIS Viewer for Flex</title>
+    <subtitle>a configurable web mapping application</subtitle>
+    <logo>assets/images/logo.png</logo>
+    <style>
+        <colors>0xFFFFFF,0x333333,0x101010,0x000000,0xFFD700</colors>
+        <alpha>0.8</alpha>
+    </style>
+    <!-- replace the following url with your own geometryservice -->
+    <geometryservice url="http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"/>
+
+    <!-- UI elements -->
+    <widget left="10" top="50"
+            config="widgets/Navigation/NavigationWidget.xml"
+            url="widgets/Navigation/NavigationWidget.swf"/>
+    <widget right="0" bottom="0"
+            config="widgets/CustomOverviewMap/CustomOverviewMapWidget.xml"
+            url="widgets/CustomOverviewMap/CustomOverviewMapWidget.swf"/>
+    <widget right="20" top="55"
+            config="widgets/MapSwitcher/MapSwitcherWidget.xml"
+            url="widgets/MapSwitcher/MapSwitcherWidget.swf"/>
+    <widget left="0" top="0"
+            config="widgets/CustomHeaderController/CustomHeaderControllerWidget.xml"
+            url="widgets/CustomHeaderController/CustomHeaderControllerWidget.swf"/>
+
+    <map top="40"
+         addarcgisbasemaps="true"
+         fullextent="-20000000 -20000000 20000000 20000000"
+         initialextent="-14083000 3139000 -10879000 5458000"
+         wraparound180="true">
+        <operationallayers>
+            <layer alpha="0.5"
+                   label="Demographics"
+                   type="tiled"
+                   url="http://server.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_Median_Household_Income/MapServer"
+                   visible="false">
+                <sublayer id="1" popupconfig="popups/PopUp_Demographics_BlockGroups.xml"/>
+                <sublayer id="2" popupconfig="popups/PopUp_Demographics_Tracts.xml"/>
+                <sublayer id="3" popupconfig="popups/PopUp_Demographics_Counties.xml"/>
+                <sublayer id="4" popupconfig="popups/PopUp_Demographics_States.xml"/>
+            </layer>
+            <layer alpha="1.0"
+                   label="Fires"
+                   popupconfig="popups/PopUp_Fires.xml"
+                   type="feature"
+                   url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0"
+                   visible="false"/>
+        </operationallayers>
+    </map>
+
+    <!-- widgets organized into widget containers that manage close/open etc -->
+    <!-- supported layout property options: horizontal(default)|float|vertical|fix-->
+    <widgetcontainer layout="float">
+        <widget left="430" top="90"
+                config="widgets/Bookmark/BookmarkWidget.xml"
+                icon="assets/images/i_bookmark.png"
+                label="Bookmarks"
+                url="widgets/Bookmark/BookmarkWidget.swf"/>
+        <widget left="590" top="280"
+                config="widgets/Query/QueryWidget_Louisville_PoliceStations.xml"
+                icon="assets/images/i_police.png"
+                label="Louisville Police"
+                url="widgets/Query/QueryWidget.swf"/>
+        <widget left="80" top="280"
+                config="widgets/Search/SearchWidget_Louisville.xml"
+                icon="assets/images/i_search.png"
+                label="Search"
+                url="widgets/Search/SearchWidget.swf"/>
+        <widget left="410" top="280"
+                config="widgets/GeoRSS/GeoRSSWidget.xml"
+                icon="assets/images/i_rss.png"
+                label="Earthquakes (GeoRSS)"
+                url="widgets/GeoRSS/GeoRSSWidget.swf"/>
+        <widget left="60" top="400"
+                config="widgets/Draw/DrawWidget.xml"
+                icon="assets/images/i_draw2.png"
+                label="Draw"
+                url="widgets/Draw/DrawWidget.swf"/>
+        <widget left="390" top="400"
+                config="widgets/Print/PrintWidget.xml"
+                icon="assets/images/i_print.png"
+                label="Print"
+                url="widgets/Print/PrintWidget.swf"/>
+        <widget config="widgets/Thematic/ThematicWidget.xml"
+                icon="widgets/Thematic/assets/images/i_thematic_icon.png"
+                label="Thematic"
+                preload="open"
+                url="widgets/Thematic/ThematicWidget.swf"/>
+        <!--         <widget config="widgets/HeatMap/HeatMapWidget.xml" -->
+        <!--                 icon="widgets/HeatMap/assets/images/i_heatmap_icon.png" -->
+        <!--                 label="Heat Map" -->
+        <!--                 preload="open" -->
+        <!--                 url="widgets/HeatMap/HeatMapWidget.swf"/> -->
+        <!--
+        <widget label="My first widget"
+                icon="assets/images/i_widget.png"
+                config="widgets/Samples/HelloWorld/HelloWorldWidget.xml"
+                url="widgets/Samples/HelloWorld/HelloWorldWidget.swf"/>
+        -->
+    </widgetcontainer>
+
+</configuration>
