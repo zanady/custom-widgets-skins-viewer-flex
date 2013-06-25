@@ -144,7 +144,7 @@
                 }
 
                 const linksXML:XMLList = configXML.links.link;
-                var link:Link;
+                var link:CustomLink;
                 for each (var linkXML:XML in linksXML)
                 {
                     link = createLinkFromXML(linkXML);
@@ -178,13 +178,13 @@
                 linkGroup.includeInLayout = true;
             }
 
-            private function aboutXMLToLinkXML(aboutXML:XML):Link
+            private function aboutXMLToLinkXML(aboutXML:XML):CustomLink
             {
-                var aboutLink:Link;
+                var aboutLink:CustomLink;
 
                 if (configXML.about.visible[0] != "false")
                 {
-                    aboutLink = new Link();
+                    aboutLink = new CustomLink();
                     aboutLink.content = configXML.about.content || "";
                     aboutLink.label = configXML.labels.abouttext[0] || configXML.about.label[0] || getDefaultString("aboutLabel");
                     aboutLink.contentCloseLabel = configXML.labels.btnlabel[0] || configXML.about.btnlabel[0] || getDefaultString("okLabel");
@@ -195,14 +195,14 @@
                 return aboutLink;
             }
 
-            private function createLinkFromXML(linkXML:XML):Link
+            private function createLinkFromXML(linkXML:XML):CustomLink
             {
-                var link:Link;
+                var link:CustomLink;
 
                 const isValidLinkXML:Boolean = linkXML.@url[0] || linkXML.content[0];
                 if (isValidLinkXML)
                 {
-                    link = new Link();
+                    link = new CustomLink();
                     link.url = linkXML.@url[0];
                     link.content = linkXML.content[0];
                     link.label = linkXML.@label[0] || getDefaultString("aboutLabel");
