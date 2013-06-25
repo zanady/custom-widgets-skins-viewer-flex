@@ -116,7 +116,7 @@
                     if (labels.indexOf(label) == -1) // avoid duplicates using the labels
                     {
                         labels.push(label);
-                        var basemapItem:Basemap = new Basemap(basemap.id, label, basemap.icon, basemap.visible);
+                        var basemapItem:CustomBasemap = new CustomBasemap(basemap.id, label, basemap.icon, basemap.visible);
                         basemapList.addItem(basemapItem);
                     }
                 }
@@ -138,7 +138,7 @@
             private function preselectTopmostVisibleBasemap():void
             {
                 var totalBasemaps:Array = basemapList.toArray().reverse();
-                for each (var basemap:Basemap in totalBasemaps)
+                for each (var basemap:CustomBasemap in totalBasemaps)
                 {
                     if (basemap.visible)
                     {
@@ -306,7 +306,7 @@
 
             private function dispatchChangeBasemapEvent():void
             {
-                AppEvent.dispatch(AppEvent.BASEMAP_SWITCH, (basemapSelectionComponent.selectedItem as Basemap).id);
+                AppEvent.dispatch(AppEvent.BASEMAP_SWITCH, (basemapSelectionComponent.selectedItem as CustomBasemap).id);
             }
 
             protected function opLayersContainer_clickHandler(event:MouseEvent):void
@@ -397,7 +397,7 @@
 
             private function basemapGallery_clickHandler(event:MouseEvent):void
             {
-                var basemapItemRenderer:BasemapItemRenderer = event.target as BasemapItemRenderer;
+                var basemapItemRenderer:CustomBasemapItemRenderer = event.target as CustomBasemapItemRenderer;
                 if (basemapItemRenderer)
                 {
                     shouldShowBasemaps = false;
