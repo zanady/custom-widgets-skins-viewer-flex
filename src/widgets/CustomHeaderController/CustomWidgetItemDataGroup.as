@@ -48,7 +48,7 @@ public class CustomWidgetItemDataGroup extends DataGroup
         }
         else
         {
-            return new ClassFactory(WidgetItemDataGroupRenderer);
+            return new ClassFactory(CustomWidgetItemDataGroupRenderer);
         }
     }
 
@@ -65,7 +65,7 @@ public class CustomWidgetItemDataGroup extends DataGroup
             comp = focusManager.getNextFocusManagerComponent();
         }
 
-        if (comp && (comp is WidgetItemDataGroupRenderer || comp is CustomGroupWidgetItemDataGroupRenderer))
+        if (comp && (comp is CustomWidgetItemDataGroupRenderer || comp is CustomGroupWidgetItemDataGroupRenderer))
         {
             comp.setFocus();
         }
