@@ -20,7 +20,7 @@ import flash.events.EventDispatcher;
 
 [Bindable]
 
-public class WidgetItem extends EventDispatcher
+public class CustomWidgetItem extends EventDispatcher
 {
     public var id:Number; // id of the associated widget
     public var isGroup:Boolean;
