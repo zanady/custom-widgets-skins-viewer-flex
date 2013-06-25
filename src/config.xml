@@ -23,10 +23,10 @@
             config="widgets/Navigation/NavigationWidget.xml"
             url="widgets/Navigation/NavigationWidget.swf"/>
     -->
-    <widget right="0" bottom="0"
+    <widget right="50" top="55"
             config="widgets/CustomOverviewMap/CustomOverviewMapWidget.xml"
             url="widgets/CustomOverviewMap/CustomOverviewMapWidget.swf"/>
-    <widget right="20" top="55"
+    <widget right="20" bottom="55"
             config="widgets/MapSwitcher/MapSwitcherWidget.xml"
             url="widgets/MapSwitcher/MapSwitcherWidget.swf"/>
     <widget left="0" top="0"
