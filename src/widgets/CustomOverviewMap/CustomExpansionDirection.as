@@ -13,10 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ///////////////////////////////////////////////////////////////////////////
-package widgets.OverviewMap
+package widgets.CustomOverviewMap
 {
 
-public class ExpansionDirection
+public class CustomExpansionDirection
 {
     public static const UP_LEFT:String = "UP_LEFT";
     public static const UP_RIGHT:String = "UP_RIGHT";
