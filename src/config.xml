@@ -25,8 +25,8 @@
             config="widgets/CustomOverviewMap/CustomOverviewMapWidget.xml"
             url="widgets/CustomOverviewMap/CustomOverviewMapWidget.swf"/>
     <widget right="20" top="55"
-            config="widgets/MapSwitcher/MapSwitcherWidget.xml"
-            url="widgets/MapSwitcher/MapSwitcherWidget.swf"/>
+            config="widgets/CustomMapSwitcher/CustomMapSwitcherWidget.xml"
+            url="widgets/CustomMapSwitcher/CustomMapSwitcherWidget.swf"/>
     <widget left="0" top="0"
             config="widgets/CustomHeaderController/CustomHeaderControllerWidget.xml"
             url="widgets/CustomHeaderController/CustomHeaderControllerWidget.swf"/>
