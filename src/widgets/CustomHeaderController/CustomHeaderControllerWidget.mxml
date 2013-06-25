@@ -18,10 +18,11 @@
 -->
 <viewer:BaseWidget xmlns:fx="http://ns.adobe.com/mxml/2009"
                    xmlns:s="library://ns.adobe.com/flex/spark"
+                   xmlns:esri="http://www.esri.com/2008/ags"
                    xmlns:mx="library://ns.adobe.com/flex/mx"
                    xmlns:viewer="com.esri.viewer.*"
-                   xmlns:components="com.esri.viewer.components.*"
                    xmlns:CustomHeaderController="widgets.CustomHeaderController.*"
+                   xmlns:components="com.esri.viewer.components.*"
                    width="100%"
                    borderSkin="{null}"
                    creationComplete="creationCompleteHandler(event)"
@@ -68,11 +69,11 @@
                 if (configData)
                 {
                     // if an explicit font size is specified, auto shrinking will not happen
-                    bannerTitle.autoShrinking = configData.titleFont.size == 0
-                    bannerSubtitle.autoShrinking = configData.subTitleFont.size == 0;
+                    /*bannerTitle.autoShrinking = configData.titleFont.size == 0
+                    bannerSubtitle.autoShrinking = configData.subTitleFont.size == 0;*/
 
                     widgetItemArrCol = getWidgetItems(configData.widgets);
-                    var uiList:Array = configData.viewerUI;
+                    /*var uiList:Array = configData.viewerUI;
 
                     for (var i:int = 0; i < uiList.length; i++)
                     {
@@ -96,7 +97,7 @@
                     {
                         headingGroup.includeInLayout = false;
                         headingGroup.visible = false;
-                    }
+                    }*/
 
                     AppEvent.addListener(AppEvent.SET_LOGO, setLogoHandler);
                     AppEvent.addListener(AppEvent.SET_TITLES, setTitlesHandler);
@@ -106,13 +107,13 @@
 
             private function setLogoHandler(event:AppEvent):void
             {
-                logoIcon.source = event.data;
+//                logoIcon.source = event.data;
             }
 
             private function setTitlesHandler(event:AppEvent):void
             {
-                bannerTitle.text = event.data.title;
-                bannerSubtitle.text = event.data.subtitle;
+            /*bannerTitle.text = event.data.title;
+            bannerSubtitle.text = event.data.subtitle;*/
             }
 
             private function widgetConfigLoadedHandler():void
@@ -171,11 +172,11 @@
                     tileLayout.verticalAlign = VerticalAlign.MIDDLE;
                     tileLayout.horizontalAlign = HorizontalAlign.LEFT;
 
-                    linkGroup.layout = tileLayout;
+//                    linkGroup.layout = tileLayout;
                 }
 
-                linkGroup.visible = true;
-                linkGroup.includeInLayout = true;
+//                linkGroup.visible = true;
+//                linkGroup.includeInLayout = true;
             }
 
             private function aboutXMLToLinkXML(aboutXML:XML):CustomLink
@@ -286,9 +287,9 @@
 
                         groupWidgetArrCol.addItem(widgetItem1);
                     }
-                    menuToolTip.visible = false;
-                    widgetList.visible = true;
-                    widgetListDG.setFocus();
+//                    menuToolTip.visible = false;
+//                    widgetList.visible = true;
+//                    widgetListDG.setFocus();
                 }
                 else
                 {
@@ -312,17 +313,17 @@
 
                 xOver = pointLocal.x;
 
-                widgetList.visible = false;
+//                widgetList.visible = false;
                 if (CustomWidgetItem(ItemRenderer(event.target).data).label)
                 {
-                    menuToolTip.visible = true;
-                    menuTitle.text = CustomWidgetItem(ItemRenderer(event.target).data).label;
+//                    menuToolTip.visible = true;
+//                    menuTitle.text = CustomWidgetItem(ItemRenderer(event.target).data).label;
                 }
             }
 
             private function widgetItemDG_widgetItemMouseOutHandler(event:Event):void
             {
-                menuToolTip.visible = false;
+//                menuToolTip.visible = false;
             }
 
             private function widgetStateChangedHandler(event:AppEvent):void
@@ -375,7 +376,7 @@
                             if (data.id as Number == groupWidgetArrCol.getItemAt(j).id)
                             {
                                 groupWidgetArrCol.getItemAt(j).open = (data.state as String == WidgetStates.WIDGET_OPENED) || (data.state as String == WidgetStates.WIDGET_MINIMIZED);
-                                widgetList.visible = false;
+//                                widgetList.visible = false;
                                 break;
                             }
                             else
@@ -389,167 +390,266 @@
 
             private function widgetList_rollOutHandler(event:MouseEvent):void
             {
-                widgetList.visible = false;
+//                widgetList.visible = false;
             }
 
             private function arrangeHeadingsAndWidgets():void
             {
-                updateSubtitleInclusion();
+            /* updateSubtitleInclusion();
 
-                const availableHeadingWidth:Number = centerContainer.width - widgetItemDG.measuredWidth - NONSTOP_RESIZE_GAP;
-                const desiredHeadingsWidth:Number = Math.max(bannerTitle.getRequiredWidthToDisplayFullText(availableHeadingWidth),
-                                                             bannerSubtitle.getRequiredWidthToDisplayFullText(availableHeadingWidth));
+             const availableHeadingWidth:Number = centerContainer.width - widgetItemDG.measuredWidth - NONSTOP_RESIZE_GAP;
+             const desiredHeadingsWidth:Number = Math.max(bannerTitle.getRequiredWidthToDisplayFullText(availableHeadingWidth),
+                                                          bannerSubtitle.getRequiredWidthToDisplayFullText(availableHeadingWidth));
 
-                if (desiredHeadingsWidth >= availableHeadingWidth)
-                {
-                    headingWidth = availableHeadingWidth;
-                    widgetItemDG.percentWidth = NaN;
-                }
-                else
-                {
-                    headingWidth = (desiredHeadingsWidth > MIN_HEADING_WIDTH) ? desiredHeadingsWidth : MIN_HEADING_WIDTH;
-                    widgetItemDG.percentWidth = 100;
-                }
+             if (desiredHeadingsWidth >= availableHeadingWidth)
+             {
+                 headingWidth = availableHeadingWidth;
+                 widgetItemDG.percentWidth = NaN;
+             }
+             else
+             {
+                 headingWidth = (desiredHeadingsWidth > MIN_HEADING_WIDTH) ? desiredHeadingsWidth : MIN_HEADING_WIDTH;
+                 widgetItemDG.percentWidth = 100;
+             }*/
             }
 
             private function updateSubtitleInclusion():void
             {
-                bannerSubtitle.visible = bannerSubtitle.text != "" && bannerSubtitle.text != null;
-                bannerSubtitle.includeInLayout = bannerSubtitle.text != "" && bannerSubtitle.text != null;
+            /*bannerSubtitle.visible = bannerSubtitle.text != "" && bannerSubtitle.text != null;
+            bannerSubtitle.includeInLayout = bannerSubtitle.text != "" && bannerSubtitle.text != null;*/
             }
         ]]>
     </fx:Script>
+    <!--
+        <s:Group id="headerGroup"
+                 width="100%" height="85">
+            <s:Group id="headerContent"
+                     width="100%" height="{headerGroup.height - 45}">
+                <s:Rect width="100%" height="100%"
+                        alpha="{getStyle('contentBackgroundAlpha')}">
+                    <s:fill>
+                        <s:SolidColor color="{getStyle('contentBackgroundColor')}"/>
+                    </s:fill>
+                </s:Rect>
 
-    <s:Group id="headerGroup"
-             width="100%" height="85">
-        <s:Group id="headerContent"
-                 width="100%" height="{headerGroup.height - 45}">
-            <s:Rect width="100%" height="100%"
-                    alpha="{getStyle('contentBackgroundAlpha')}">
-                <s:fill>
-                    <s:SolidColor color="{getStyle('contentBackgroundColor')}"/>
-                </s:fill>
-            </s:Rect>
-
-            <s:HGroup width="100%" height="100%"
-                      gap="5"
-                      paddingLeft="5"
-                      paddingRight="5"
-                      verticalAlign="middle">
-                <s:BitmapImage id="logoIcon"
-                               horizontalAlign="left"
-                               maxHeight="{headerContent.height}"
-                               verticalAlign="middle"/>
-
-                <s:HGroup id="centerContainer"
-                          width="100%"
-                          resize="arrangeHeadingsAndWidgets()"
+                <s:HGroup width="100%" height="100%"
+                          gap="5"
+                          paddingLeft="5"
+                          paddingRight="5"
                           verticalAlign="middle">
-                    <s:VGroup id="headingGroup"
-                              height="{headerContent.height}"
-                              gap="0"
-                              minWidth="100"
+                    <s:BitmapImage id="logoIcon"
+                                   horizontalAlign="left"
+                                   maxHeight="{headerContent.height}"
+                                   verticalAlign="middle"/>
+
+                    <s:HGroup id="centerContainer"
+                              width="100%"
+                              resize="arrangeHeadingsAndWidgets()"
                               verticalAlign="middle">
-                        <components:AutoFontLabel id="bannerTitle"
-                                                  maxWidth="{headingWidth}"
-                                                  styleName="BannerTitle"
-                                                  textChanged="arrangeHeadingsAndWidgets()"/>
+                        <s:VGroup id="headingGroup"
+                                  height="{headerContent.height}"
+                                  gap="0"
+                                  minWidth="100"
+                                  verticalAlign="middle">
+                            <components:AutoFontLabel id="bannerTitle"
+                                                      maxWidth="{headingWidth}"
+                                                      styleName="BannerTitle"
+                                                      textChanged="arrangeHeadingsAndWidgets()"/>
 
-                        <components:AutoFontLabel id="bannerSubtitle"
-                                                  maxWidth="{headingWidth}"
-                                                  styleName="BannerSubtitle"
-                                                  textChanged="arrangeHeadingsAndWidgets()"/>
-                    </s:VGroup>
+                            <components:AutoFontLabel id="bannerSubtitle"
+                                                      maxWidth="{headingWidth}"
+                                                      styleName="BannerSubtitle"
+                                                      textChanged="arrangeHeadingsAndWidgets()"/>
+                        </s:VGroup>
 
-                    <CustomHeaderController:CustomWidgetItemDataGroup id="widgetItemDG"
-                                                                      width="100%"
-                                                                      dataProvider="{widgetItemArrCol}"
-                                                                      horizontalCenter="0"
-                                                                      widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
-                                                                      widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
-                                                                      widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
-                        <CustomHeaderController:layout>
-                            <s:HorizontalLayout gap="12"
-                                                horizontalAlign="center"
-                                                useVirtualLayout="true"
-                                                verticalAlign="middle"/>
-                        </CustomHeaderController:layout>
-                    </CustomHeaderController:CustomWidgetItemDataGroup>
+                        <CustomHeaderController:CustomWidgetItemDataGroup id="widgetItemDG"
+                                                                          width="100%"
+                                                                          dataProvider="{widgetItemArrCol}"
+                                                                          horizontalCenter="0"
+                                                                          widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
+                                                                          widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
+                                                                          widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
+                            <CustomHeaderController:layout>
+                                <s:HorizontalLayout gap="12"
+                                                    horizontalAlign="center"
+                                                    useVirtualLayout="true"
+                                                    verticalAlign="middle"/>
+                            </CustomHeaderController:layout>
+                        </CustomHeaderController:CustomWidgetItemDataGroup>
+                    </s:HGroup>
+
+                    <components:GeocoderComponent id="singleLineSearch"
+                                                  width="230" height="28"
+                                                  includeInLayout="false"
+                                                  visible="false"/>
+
+                    <s:DataGroup id="linkGroup"
+                                 dataProvider="{linkList}"
+                                 includeInLayout="false"
+                                 itemRenderer="widgets.CustomHeaderController.CustomLinkItemRenderer"
+                                 visible="false"/>
                 </s:HGroup>
+            </s:Group>
 
-                <components:GeocoderComponent id="singleLineSearch"
-                                              width="230" height="28"
-                                              includeInLayout="false"
-                                              visible="false"/>
+            <s:VGroup id="menuToolTip"
+                      x="{xOver + 12 - menuToolTipBox.width/2}" y="{headerContent.height}"
+                      gap="0"
+                      horizontalAlign="center"
+                      visible="false">
+                <s:Graphic id="menuTriangle" visible="{menuToolTip.visible}">
+                    <s:Group>
+                        <s:Path data="m 7 0 l 7 14 l -14 0 z">
+                            <s:fill>
+                                <s:SolidColor alpha="1" color="{getStyle('contentBackgroundColor')}"/>
+                            </s:fill>
+                        </s:Path>
+                    </s:Group>
+                </s:Graphic>
 
-                <s:DataGroup id="linkGroup"
-                             dataProvider="{linkList}"
-                             includeInLayout="false"
-                             itemRenderer="widgets.CustomHeaderController.CustomLinkItemRenderer"
-                             visible="false"/>
-            </s:HGroup>
-        </s:Group>
+                <s:BorderContainer id="menuToolTipBox"
+                                   width="{menuTitle.width + 8}" height="{menuTitle.height +2}"
+                                   backgroundColor="{getStyle('contentBackgroundColor')}"
+                                   borderVisible="false"
+                                   cornerRadius="10"
+                                   visible="{menuToolTip.visible}">
+                    <s:layout>
+                        <s:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
+                    </s:layout>
 
-        <s:VGroup id="menuToolTip"
-                  x="{xOver + 12 - menuToolTipBox.width/2}" y="{headerContent.height}"
-                  gap="0"
-                  horizontalAlign="center"
-                  visible="false">
-            <s:Graphic id="menuTriangle" visible="{menuToolTip.visible}">
-                <s:Group>
-                    <s:Path data="m 7 0 l 7 14 l -14 0 z">
-                        <s:fill>
-                            <s:SolidColor alpha="1" color="{getStyle('contentBackgroundColor')}"/>
-                        </s:fill>
-                    </s:Path>
-                </s:Group>
-            </s:Graphic>
+                    <s:Label id="menuTitle"
+                             paddingBottom="4"
+                             paddingLeft="5"
+                             paddingRight="5"
+                             paddingTop="5"
+                             visible="{menuToolTip.visible}"/>
+                </s:BorderContainer>
+            </s:VGroup>
 
-            <s:BorderContainer id="menuToolTipBox"
-                               width="{menuTitle.width + 8}" height="{menuTitle.height +2}"
+            <s:BorderContainer id="widgetList"
+                               x="{xOver + 4 - widgetListDG.width/2}" y="{headerContent.height}" width="{widgetListDG.width + 4}" height="{widgetListDG.height + 2}"
                                backgroundColor="{getStyle('contentBackgroundColor')}"
-                               borderVisible="false"
-                               cornerRadius="10"
-                               visible="{menuToolTip.visible}">
-                <s:layout>
-                    <s:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>
-                </s:layout>
-
-                <s:Label id="menuTitle"
-                         paddingBottom="4"
-                         paddingLeft="5"
-                         paddingRight="5"
-                         paddingTop="5"
-                         visible="{menuToolTip.visible}"/>
+                               borderColor="{getStyle('color')}"
+                               borderVisible="true"
+                               cornerRadius="3"
+                               rollOut="widgetList_rollOutHandler(event)"
+                               visible="false">
+                <CustomHeaderController:CustomWidgetListDataGroup id="widgetListDG"
+                                                                  width="150"
+                                                                  dataProvider="{groupWidgetArrCol}"
+                                                                  focusEnabled="false"
+                                                                  tabChildren="true"
+                                                                  widgetListItemClick="widgetList_widgetItemClickHandler(event)">
+                    <CustomHeaderController:layout>
+                        <s:VerticalLayout paddingTop="6"
+                                          useVirtualLayout="true"
+                                          verticalAlign="middle"/>
+                    </CustomHeaderController:layout>
+                </CustomHeaderController:CustomWidgetListDataGroup>
             </s:BorderContainer>
-        </s:VGroup>
 
-        <s:BorderContainer id="widgetList"
-                           x="{xOver + 4 - widgetListDG.width/2}" y="{headerContent.height}" width="{widgetListDG.width + 4}" height="{widgetListDG.height + 2}"
-                           backgroundColor="{getStyle('contentBackgroundColor')}"
-                           borderColor="{getStyle('color')}"
-                           borderVisible="true"
-                           cornerRadius="3"
-                           rollOut="widgetList_rollOutHandler(event)"
-                           visible="false">
-            <CustomHeaderController:CustomWidgetListDataGroup id="widgetListDG"
-                                                              width="150"
-                                                              dataProvider="{groupWidgetArrCol}"
-                                                              focusEnabled="false"
-                                                              tabChildren="true"
-                                                              widgetListItemClick="widgetList_widgetItemClickHandler(event)">
-                <CustomHeaderController:layout>
-                    <s:VerticalLayout paddingTop="6"
-                                      useVirtualLayout="true"
-                                      verticalAlign="middle"/>
-                </CustomHeaderController:layout>
-            </CustomHeaderController:CustomWidgetListDataGroup>
-        </s:BorderContainer>
+            <s:filters>
+                <s:DropShadowFilter alpha="0.5"
+                                    blurX="10"
+                                    blurY="10"/>
+            </s:filters>
+        </s:Group>
+        -->
+    <s:Group id="headerGroup"
+             width="100%" height="100%">
+        <s:BitmapImage id="topRightImage"
+                       y="0"
+                       right="0"
+                       smooth="true"
+                       source="@Embed('/assets/images/custom/topright.png')"/>
+        <s:BitmapImage id="logoImage"
+                       x="0" y="0"
+                       smooth="true"
+                       source="@Embed('/assets/images/custom/logo.png')"/>
+        <s:BitmapImage y="0" height="49"
+                       left="{logoImage.width}" right="{topRightImage.width}"
+                       fillMode="repeat"
+                       smooth="true"
+                       source="@Embed('/assets/images/custom/top.png')"/>
+        <s:RichText id="welcomeTxt"
+                    y="18"
+                    right="210"
+                    color="#FFFFFF"
+                    fontFamily="Arial"
+                    fontSize="12"
+                    tabStops="S0 S50 S100 S150"
+                    text="Hello, Hal!"/>
 
-        <s:filters>
-            <s:DropShadowFilter alpha="0.5"
-                                blurX="10"
-                                blurY="10"/>
-        </s:filters>
+        <s:Rect id="wContainerRect"
+                y="6.5" width="399" height="30"
+                left="{logoImage.width + (welcomeTxt.x - logoImage.width)/2 - 200 }"
+                radiusX="15">
+            <s:stroke>
+                <s:SolidColorStroke caps="none"
+                                    color="#007DB8"
+                                    joints="miter"
+                                    miterLimit="4"
+                                    weight="1"/>
+            </s:stroke>
+            <s:fill>
+                <s:LinearGradient rotation="90">
+                    <s:GradientEntry alpha="1.0"
+                                     color="#FFFFFF"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1.0"
+                                     color="#509EC7"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Rect>
+        <s:Rect id="navigationRect"
+                y="55.5" width="169" height="30"
+                right="7"
+                radiusX="15"
+                rotation="90">
+            <s:stroke>
+                <s:SolidColorStroke caps="none"
+                                    color="#007DB8"
+                                    joints="miter"
+                                    miterLimit="4"
+                                    weight="1"/>
+            </s:stroke>
+            <s:fill>
+                <s:LinearGradient rotation="90">
+                    <s:GradientEntry alpha="1.0"
+                                     color="#FFFFFF"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1.0"
+                                     color="#509EC7"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Rect>
+
+        <components:GeocoderComponent id="singleLineSearch"
+                                      y="6.5" width="190" height="28"
+                                      right="5"
+                                      includeInLayout="false"
+                                      visible="false"/>
+
+        <CustomHeaderController:CustomWidgetItemDataGroup id="widgetItemDG"
+                                                          y="6.5" width="100%"
+                                                          left="{wContainerRect.x + 15}"
+                                                          dataProvider="{widgetItemArrCol}"
+                                                          horizontalCenter="0"
+                                                          widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
+                                                          widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
+                                                          widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
+            <CustomHeaderController:layout>
+                <s:HorizontalLayout gap="12"
+                                    horizontalAlign="center"
+                                    useVirtualLayout="true"
+                                    verticalAlign="middle"/>
+            </CustomHeaderController:layout>
+        </CustomHeaderController:CustomWidgetItemDataGroup>
+
+        <esri:Navigation height="{navigationRect.height - 50}"
+                         left="{NaN}" right="11" top="{navigationRect.y + 4}" bottom="{NaN}"
+                         map="{map}"
+                         skinClass="widgets.CustomHeaderController.CustomNavigationSkin"/>
     </s:Group>
 </viewer:BaseWidget>
