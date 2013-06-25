@@ -485,7 +485,7 @@
                 <s:DataGroup id="linkGroup"
                              dataProvider="{linkList}"
                              includeInLayout="false"
-                             itemRenderer="widgets.CustomHeaderController.LinkItemRenderer"
+                             itemRenderer="widgets.CustomHeaderController.CustomLinkItemRenderer"
                              visible="false"/>
             </s:HGroup>
         </s:Group>
