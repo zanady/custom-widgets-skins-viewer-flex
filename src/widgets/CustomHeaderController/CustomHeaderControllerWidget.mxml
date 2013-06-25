@@ -532,18 +532,18 @@
                            cornerRadius="3"
                            rollOut="widgetList_rollOutHandler(event)"
                            visible="false">
-            <CustomHeaderController:WidgetListDataGroup id="widgetListDG"
-                                                        width="150"
-                                                        dataProvider="{groupWidgetArrCol}"
-                                                        focusEnabled="false"
-                                                        tabChildren="true"
-                                                        widgetListItemClick="widgetList_widgetItemClickHandler(event)">
+            <CustomHeaderController:CustomWidgetListDataGroup id="widgetListDG"
+                                                              width="150"
+                                                              dataProvider="{groupWidgetArrCol}"
+                                                              focusEnabled="false"
+                                                              tabChildren="true"
+                                                              widgetListItemClick="widgetList_widgetItemClickHandler(event)">
                 <CustomHeaderController:layout>
                     <s:VerticalLayout paddingTop="6"
                                       useVirtualLayout="true"
                                       verticalAlign="middle"/>
                 </CustomHeaderController:layout>
-            </CustomHeaderController:WidgetListDataGroup>
+            </CustomHeaderController:CustomWidgetListDataGroup>
         </s:BorderContainer>
 
         <s:filters>
