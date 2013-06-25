@@ -21,7 +21,7 @@
                    xmlns:mx="library://ns.adobe.com/flex/mx"
                    xmlns:viewer="com.esri.viewer.*"
                    xmlns:components="com.esri.viewer.components.*"
-                   xmlns:HeaderController="widgets.HeaderController.*"
+                   xmlns:CustomHeaderController="widgets.CustomHeaderController.*"
                    width="100%"
                    borderSkin="{null}"
                    creationComplete="creationCompleteHandler(event)"
@@ -461,20 +461,20 @@
                                                   textChanged="arrangeHeadingsAndWidgets()"/>
                     </s:VGroup>
 
-                    <HeaderController:WidgetItemDataGroup id="widgetItemDG"
-                                                          width="100%"
-                                                          dataProvider="{widgetItemArrCol}"
-                                                          horizontalCenter="0"
-                                                          widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
-                                                          widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
-                                                          widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
-                        <HeaderController:layout>
+                    <CustomHeaderController:WidgetItemDataGroup id="widgetItemDG"
+                                                                width="100%"
+                                                                dataProvider="{widgetItemArrCol}"
+                                                                horizontalCenter="0"
+                                                                widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
+                                                                widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
+                                                                widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
+                        <CustomHeaderController:layout>
                             <s:HorizontalLayout gap="12"
                                                 horizontalAlign="center"
                                                 useVirtualLayout="true"
                                                 verticalAlign="middle"/>
-                        </HeaderController:layout>
-                    </HeaderController:WidgetItemDataGroup>
+                        </CustomHeaderController:layout>
+                    </CustomHeaderController:WidgetItemDataGroup>
                 </s:HGroup>
 
                 <components:GeocoderComponent id="singleLineSearch"
@@ -485,7 +485,7 @@
                 <s:DataGroup id="linkGroup"
                              dataProvider="{linkList}"
                              includeInLayout="false"
-                             itemRenderer="widgets.HeaderController.LinkItemRenderer"
+                             itemRenderer="widgets.CustomHeaderController.LinkItemRenderer"
                              visible="false"/>
             </s:HGroup>
         </s:Group>
@@ -532,18 +532,18 @@
                            cornerRadius="3"
                            rollOut="widgetList_rollOutHandler(event)"
                            visible="false">
-            <HeaderController:WidgetListDataGroup id="widgetListDG"
-                                                  width="150"
-                                                  dataProvider="{groupWidgetArrCol}"
-                                                  focusEnabled="false"
-                                                  tabChildren="true"
-                                                  widgetListItemClick="widgetList_widgetItemClickHandler(event)">
-                <HeaderController:layout>
+            <CustomHeaderController:WidgetListDataGroup id="widgetListDG"
+                                                        width="150"
+                                                        dataProvider="{groupWidgetArrCol}"
+                                                        focusEnabled="false"
+                                                        tabChildren="true"
+                                                        widgetListItemClick="widgetList_widgetItemClickHandler(event)">
+                <CustomHeaderController:layout>
                     <s:VerticalLayout paddingTop="6"
                                       useVirtualLayout="true"
                                       verticalAlign="middle"/>
-                </HeaderController:layout>
-            </HeaderController:WidgetListDataGroup>
+                </CustomHeaderController:layout>
+            </CustomHeaderController:WidgetListDataGroup>
         </s:BorderContainer>
 
         <s:filters>
