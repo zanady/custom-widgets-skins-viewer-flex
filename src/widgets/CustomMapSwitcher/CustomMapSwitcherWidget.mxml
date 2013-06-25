@@ -475,7 +475,7 @@
                 click="basemapGallery_clickHandler(event)"
                 dataProvider="{basemapList}"
                 focusAlpha="0"
-                itemRenderer="widgets.MapSwitcher.BasemapItemRenderer"
+                itemRenderer="widgets.CustomMapSwitcher.CustomBasemapItemRenderer"
                 maxHeight="362"
                 requireSelection="true"
                 tabIndex="5">
