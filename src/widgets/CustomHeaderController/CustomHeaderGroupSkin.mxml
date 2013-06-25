@@ -24,7 +24,7 @@
     </fx:Declarations>
 
     <fx:Metadata>
-        [HostComponent("widgets.HeaderController.HeaderGroup")]
+        [HostComponent("widgets.CustomHeaderController.CustomHeaderGroup")]
     </fx:Metadata>
 
     <s:states>
