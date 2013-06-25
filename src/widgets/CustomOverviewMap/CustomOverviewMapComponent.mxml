@@ -22,7 +22,7 @@
                       xmlns:esri="http://www.esri.com/2008/ags"
                       creationComplete="init()">
 
-    <!-- this component is used by the OverviewMapWidget -->
+    <!-- this component is used by the CustomOverviewMapWidget -->
     <fx:Script>
         <![CDATA[
             import com.esri.ags.Graphic;
@@ -95,21 +95,21 @@
             {
                 switch (direction)
                 {
-                    case ExpansionDirection.UP_RIGHT:
+                    case CustomExpansionDirection.UP_RIGHT:
                     {
                         toggleIcon.rotation = 90;
                         toggleIcon.left = toggleIcon.bottom = iconMask.left = iconMask.bottom = null;
                         toggleIcon.right = toggleIcon.top = iconMask.right = iconMask.top = 0;
                         break;
                     }
-                    case ExpansionDirection.DOWN_RIGHT:
+                    case CustomExpansionDirection.DOWN_RIGHT:
                     {
                         toggleIcon.rotation = 180;
                         toggleIcon.left = toggleIcon.top = iconMask.left = iconMask.top = null;
                         toggleIcon.right = toggleIcon.bottom = iconMask.right = iconMask.bottom = 0;
                         break;
                     }
-                    case ExpansionDirection.DOWN_LEFT:
+                    case CustomExpansionDirection.DOWN_LEFT:
                     {
                         toggleIcon.rotation = 270;
                         toggleIcon.right = toggleIcon.top = iconMask.right = iconMask.top = null;
