@@ -49,11 +49,11 @@
             private const WIDGET_ITEM_MOUSE_OUT:String = "widgetItemMouseOut";
 
             [Bindable]
-            private var widgetItem:WidgetItem;
+            private var widgetItem:CustomWidgetItem;
 
             private function itemrenderer_dataChangeHandler(event:FlexEvent):void
             {
-                widgetItem = data as WidgetItem;
+                widgetItem = data as CustomWidgetItem;
 
                 icon.source = widgetItem.icon;
                 underline.widgetOpen = widgetItem.open;
@@ -71,7 +71,7 @@
 
             private function itemrenderer_clickHandler(event:MouseEvent):void
             {
-                if (!WidgetItem(data).open)
+                if (!CustomWidgetItem(data).open)
                 {
                     moveEffect.end();
                     moveEffect.play();
