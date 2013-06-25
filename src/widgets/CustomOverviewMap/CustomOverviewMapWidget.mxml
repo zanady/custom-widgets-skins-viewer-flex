@@ -20,12 +20,12 @@
                    xmlns:s="library://ns.adobe.com/flex/spark"
                    xmlns:mx="library://ns.adobe.com/flex/mx"
                    xmlns:viewer="com.esri.viewer.*"
-                   xmlns:OverviewMap="widgets.OverviewMap.*"
+                   xmlns:CustomOverviewMap="widgets.CustomOverviewMap.*"
                    layoutDirection="ltr"
                    widgetConfigLoaded="init()">
     <!--
-         This is the OverviewMapWidget widget.
-         @@includeFiles widgets/OverviewMapWidget/OverviewMapComponent.mxml
+         This is the CustomOverviewMapWidget widget.
+         @@includeFiles widgets/CustomOverviewMapWidget/CustomOverviewMapComponent.mxml
     -->
 
     <fx:Script>
@@ -44,24 +44,24 @@
                     var expandToUp:Boolean = bottom != null;
                     if (expandToLeft && expandToUp)
                     {
-                        overviewMap.expansionDirection = ExpansionDirection.UP_LEFT;
+                        overviewMap.expansionDirection = CustomExpansionDirection.UP_LEFT;
                     }
                     else if (expandToLeft && !expandToUp)
                     {
-                        overviewMap.expansionDirection = ExpansionDirection.DOWN_LEFT;
+                        overviewMap.expansionDirection = CustomExpansionDirection.DOWN_LEFT;
                     }
                     else if (!expandToLeft && expandToUp)
                     {
-                        overviewMap.expansionDirection = ExpansionDirection.UP_RIGHT;
+                        overviewMap.expansionDirection = CustomExpansionDirection.UP_RIGHT;
                     }
                     else if (!expandToLeft && !expandToUp)
                     {
-                        overviewMap.expansionDirection = ExpansionDirection.DOWN_RIGHT;
+                        overviewMap.expansionDirection = CustomExpansionDirection.DOWN_RIGHT;
                     }
                 }
                 else
                 {
-                    overviewMap.expansionDirection = ExpansionDirection.DOWN_RIGHT;
+                    overviewMap.expansionDirection = CustomExpansionDirection.DOWN_RIGHT;
                 }
                 // set these properties before setting the configXML
                 overviewMap.openDefaultToolTip = getDefaultString("openToolTip");
@@ -76,6 +76,6 @@
         ]]>
     </fx:Script>
 
-    <OverviewMap:OverviewMapComponent id="overviewMap"/>
+    <CustomOverviewMap:CustomOverviewMapComponent id="overviewMap"/>
 
 </viewer:BaseWidget>
