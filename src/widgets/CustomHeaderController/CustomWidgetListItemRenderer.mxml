@@ -41,7 +41,7 @@
             private const WIDGET_ITEM_CLICK:String = "widgetListItemClick";
 
             [Bindable]
-            private var widgetItem:WidgetItem;
+            private var widgetItem:CustomWidgetItem;
 
             [Bindable]
             private var upperRad:int = 0;
@@ -53,7 +53,7 @@
 
             private function itemrenderer_dataChangeHandler(event:FlexEvent):void
             {
-                widgetItem = data as WidgetItem;
+                widgetItem = data as CustomWidgetItem;
 
                 icon.source = widgetItem.icon;
                 underline.widgetOpen = widgetItem.open;

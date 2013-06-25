@@ -217,7 +217,7 @@
             private function getWidgetItems(widgetList:Array):ArrayCollection
             {
                 var menuItems:ArrayCollection = new ArrayCollection();
-                var widgetItem:WidgetItem;
+                var widgetItem:CustomWidgetItem;
                 for (var i:int = 0; i < widgetList.length; )
                 {
                     const isPartOfPanel:Boolean = widgetList[i].isPartOfPanel && widgetList[i].isPartOfPanel == true;
@@ -232,7 +232,7 @@
                             {
                                 widgetArray.push({ widget: widgetList[i + k], open: (widgetList[i].preload && (widgetList[i].preload == "open" || widgetList[i].preload == "minimized")) ? true : false });
                             }
-                            widgetItem = new WidgetItem();
+                            widgetItem = new CustomWidgetItem();
                             widgetItem.isGroup = true;
                             widgetItem.label = widgetList[i].groupLabel;
                             widgetItem.icon = widgetList[i].groupIcon;
@@ -246,7 +246,7 @@
                         else
                         {
                             // upgrouped
-                            widgetItem = new WidgetItem();
+                            widgetItem = new CustomWidgetItem();
                             widgetItem.id = widgetList[i].id;
                             widgetItem.label = widgetList[i].label;
                             widgetItem.icon = widgetList[i].icon;
@@ -270,14 +270,14 @@
 
             private function widgetItemDG_widgetItemClickHandler(event:Event):void
             {
-                var widgetItem:WidgetItem = ItemRenderer(event.target).data as WidgetItem;
+                var widgetItem:CustomWidgetItem = ItemRenderer(event.target).data as CustomWidgetItem;
                 if (widgetItem.isGroup)
                 {
                     groupWidgetArrCol = new ArrayCollection();
                     // check the array of widgets if they are open before hand
                     for each (var widgetObj:Object in widgetItem.widgets)
                     {
-                        var widgetItem1:WidgetItem = new WidgetItem();
+                        var widgetItem1:CustomWidgetItem = new CustomWidgetItem();
                         widgetItem1.id = widgetObj.widget.id;
                         widgetItem1.label = widgetObj.widget.label;
                         widgetItem1.icon = widgetObj.widget.icon;
@@ -298,7 +298,7 @@
 
             private function widgetList_widgetItemClickHandler(event:Event):void
             {
-                var widgetItem:WidgetItem = ItemRenderer(event.target).data as WidgetItem;
+                var widgetItem:CustomWidgetItem = ItemRenderer(event.target).data as CustomWidgetItem;
                 AppEvent.dispatch(AppEvent.WIDGET_RUN, widgetItem.id);
             }
 
@@ -313,10 +313,10 @@
                 xOver = pointLocal.x;
 
                 widgetList.visible = false;
-                if (WidgetItem(ItemRenderer(event.target).data).label)
+                if (CustomWidgetItem(ItemRenderer(event.target).data).label)
                 {
                     menuToolTip.visible = true;
-                    menuTitle.text = WidgetItem(ItemRenderer(event.target).data).label;
+                    menuTitle.text = CustomWidgetItem(ItemRenderer(event.target).data).label;
                 }
             }
 
