@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for the Spark Button component.
+
+       @see spark.components.Button
+
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+-->
+<s:SparkButtonSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
+                   xmlns:s="library://ns.adobe.com/flex/spark"
+                   xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+                   alpha.disabled="0.5"
+                   minHeight="21"
+                   minWidth="21">
+
+    <fx:Metadata>
+        <![CDATA[ 
+        /** 
+         * @copy spark.skins.spark.ApplicationSkin#hostComponent
+         */
+        [HostComponent("spark.components.Button")]
+        ]]>
+    </fx:Metadata>
+
+
+
+    <!-- states -->
+    <s:states>
+        <s:State name="up"/>
+        <s:State name="over"/>
+        <s:State name="down"/>
+        <s:State name="disabled"/>
+    </s:states>
+
+    <!-- USED DYNAMIC SIZING AND LABEL TEXT -->
+    <s:Rect id="rect1"
+            x="0" y="3" width="{hostComponent.width + 12 }" height="23"
+            radiusX="12"
+            visible.up="false">
+        <s:fill>
+            <s:LinearGradient rotation="90">
+                <s:GradientEntry alpha="1.0"
+                                 color="#497C01"
+                                 ratio="0"/>
+                <s:GradientEntry alpha="1.0"
+                                 color="#669902"
+                                 ratio="1"/>
+            </s:LinearGradient>
+        </s:fill>
+    </s:Rect>
+    <!--<s:RichText id="widgetLabel"
+                x="6" y="9"
+                color="#FFFFFF"
+                color.up="#333333"
+                fontFamily="Arial"
+                fontSize="14"
+                tabStops="S0 S50"
+                text="{hostComponent.label}"/>-->
+
+    <s:Label id="labelDisplay"
+             x="6" y="9"
+             color="#FFFFFF"
+             color.up="#333333"
+             fontFamily="Arial"
+             fontSize="14"
+             textAlign="center"
+             verticalAlign="middle">
+    </s:Label>
+
+    <s:transitions>
+        <s:Transition autoReverse="true"
+                      fromState="disabled"
+                      toState="up">
+            <s:Parallel>
+                <s:Parallel target="{rect1}">
+                    <s:Fade duration="0"/>
+                </s:Parallel>
+            </s:Parallel>
+        </s:Transition>
+    </s:transitions>
+
+</s:SparkButtonSkin>

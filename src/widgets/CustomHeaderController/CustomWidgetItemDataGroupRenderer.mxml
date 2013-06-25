@@ -19,7 +19,6 @@
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009"
                 xmlns:s="library://ns.adobe.com/flex/spark"
                 xmlns:mx="library://ns.adobe.com/flex/mx"
-                xmlns:CustomHeaderController="widgets.CustomHeaderController.*"
                 autoDrawBackground="false"
                 buttonMode="true"
                 click="itemrenderer_clickHandler(event)"
@@ -55,8 +54,9 @@
             {
                 widgetItem = data as CustomWidgetItem;
 
-                icon.source = widgetItem.icon;
-                underline.widgetOpen = widgetItem.open;
+                icon.label = widgetItem.label;
+            /*icon.source = widgetItem.icon;
+            underline.widgetOpen = widgetItem.open;*/
             }
 
             private function mouseOutHandler(event:MouseEvent):void
@@ -135,7 +135,7 @@
         ]]>
     </fx:Script>
 
-    <s:VGroup width="25" height="30"
+    <!--<s:VGroup width="25" height="30"
               gap="2"
               horizontalAlign="center"
               verticalAlign="middle">
@@ -147,6 +147,12 @@
                  smooth="true"
                  useHandCursor="true"/>
         <CustomHeaderController:CustomWidgetUnderline id="underline"/>
-    </s:VGroup>
+    </s:VGroup>-->
 
+    <s:Button id="icon"
+              width="100%" height="100%"
+              mouseOut="mouseOutHandler(event)"
+              mouseOver="mouseOverHandler(event)"
+              skinClass="widgets.CustomHeaderController.CustomButtonSkin"
+              useHandCursor="true"/>
 </s:ItemRenderer>
