@@ -78,12 +78,13 @@
             private function init():void
             {
                 // wait for the current state to be updated based on config
-                viewBox.visible = false;
-                borderRect1.visible = false;
+                /*viewBox.visible = false;
+                borderRect1.visible = false;*/
+
 
                 overviewGraphic.buttonMode = true;
-                toggleIcon.addEventListener(MouseEvent.CLICK, toggleIcon_clickHandler);
-                viewBox.setStyle("backgroundColor", FlexGlobals.topLevelApplication.getStyle("backgroundColor"));
+            /*toggleIcon.addEventListener(MouseEvent.CLICK, toggleIcon_clickHandler);
+            viewBox.setStyle("backgroundColor", FlexGlobals.topLevelApplication.getStyle("backgroundColor"));*/
             }
 
             private function toggleIcon_clickHandler(event:MouseEvent):void
@@ -93,30 +94,30 @@
 
             public function set expansionDirection(direction:String):void
             {
-                switch (direction)
+            /*switch (direction)
+            {
+                case CustomExpansionDirection.UP_RIGHT:
                 {
-                    case CustomExpansionDirection.UP_RIGHT:
-                    {
-                        toggleIcon.rotation = 90;
-                        toggleIcon.left = toggleIcon.bottom = iconMask.left = iconMask.bottom = null;
-                        toggleIcon.right = toggleIcon.top = iconMask.right = iconMask.top = 0;
-                        break;
-                    }
-                    case CustomExpansionDirection.DOWN_RIGHT:
-                    {
-                        toggleIcon.rotation = 180;
-                        toggleIcon.left = toggleIcon.top = iconMask.left = iconMask.top = null;
-                        toggleIcon.right = toggleIcon.bottom = iconMask.right = iconMask.bottom = 0;
-                        break;
-                    }
-                    case CustomExpansionDirection.DOWN_LEFT:
-                    {
-                        toggleIcon.rotation = 270;
-                        toggleIcon.right = toggleIcon.top = iconMask.right = iconMask.top = null;
-                        toggleIcon.left = toggleIcon.bottom = iconMask.left = iconMask.bottom = 0;
-                        break;
-                    }
+                    toggleIcon.rotation = 90;
+                    toggleIcon.left = toggleIcon.bottom = iconMask.left = iconMask.bottom = null;
+                    toggleIcon.right = toggleIcon.top = iconMask.right = iconMask.top = 0;
+                    break;
                 }
+                case CustomExpansionDirection.DOWN_RIGHT:
+                {
+                    toggleIcon.rotation = 180;
+                    toggleIcon.left = toggleIcon.top = iconMask.left = iconMask.top = null;
+                    toggleIcon.right = toggleIcon.bottom = iconMask.right = iconMask.bottom = 0;
+                    break;
+                }
+                case CustomExpansionDirection.DOWN_LEFT:
+                {
+                    toggleIcon.rotation = 270;
+                    toggleIcon.right = toggleIcon.top = iconMask.right = iconMask.top = null;
+                    toggleIcon.left = toggleIcon.bottom = iconMask.left = iconMask.bottom = 0;
+                    break;
+                }
+            }*/
             }
 
             private var _configXML:XML;
@@ -364,8 +365,8 @@
                             layer.visible = false;
                         }
                     }
-                    viewBox.visible = true;
-                    borderRect1.visible = true;
+                    /* viewBox.visible = true;
+                     borderRect1.visible = true;*/
                 }
             }
 
@@ -588,6 +589,7 @@
         <s:State name="noncollapsible"/>
     </s:states>
 
+    <!--
     <s:transitions>
         <s:Transition fromState="collapsed" toState="expanded">
             <s:Sequence effectEnd="sequence_effectEndHandler(event)" effectStart="sequence_effectStartHandler(event)">
@@ -651,6 +653,35 @@
         <s:stroke>
             <s:SolidColorStroke color="{getStyle('contentBackgroundColor')}" weight="1"/>
         </s:stroke>
-    </s:Rect>
+    </s:Rect>-->
+
+    <esri:Map id="overviewMap"
+              width="207" height="155"
+              attributionVisible="false"
+              cacheAsBitmap="true"
+              clickRecenterEnabled="false"
+              doubleClickZoomEnabled="false"
+              keyboardNavigationEnabled="false"
+              load="overviewMap_loadHandler(event)"
+              logoVisible="false"
+              mask="{overviewMask}"
+              panArrowsVisible="false"
+              panEnabled="false"
+              rubberbandZoomEnabled="false"
+              scaleBarVisible="false"
+              scrollWheelZoomEnabled="false"
+              wrapAround180="{map.wrapAround180}"
+              zoomSliderVisible="false"/>
+
+    <s:Image id="overview"
+             cacheAsBitmap="true"
+             mouseChildren="false"
+             mouseEnabled="false"
+             source="@Embed('/assets/images/custom/overview.png')"/>
+
+    <s:Image id="overviewMask"
+             left="3" top="3"
+             cacheAsBitmap="true"
+             source="@Embed('/assets/images/custom/overviewMask.png')"/>
 
 </s:SkinnableContainer>
