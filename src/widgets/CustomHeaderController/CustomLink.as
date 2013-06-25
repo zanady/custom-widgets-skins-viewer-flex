@@ -17,7 +17,7 @@ package widgets.CustomHeaderController
 {
 
 [Bindable]
-public class Link
+public class CustomLink
 {
     public var url:String;
     public var label:String;
