@@ -461,20 +461,20 @@
                                                   textChanged="arrangeHeadingsAndWidgets()"/>
                     </s:VGroup>
 
-                    <CustomHeaderController:WidgetItemDataGroup id="widgetItemDG"
-                                                                width="100%"
-                                                                dataProvider="{widgetItemArrCol}"
-                                                                horizontalCenter="0"
-                                                                widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
-                                                                widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
-                                                                widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
+                    <CustomHeaderController:CustomWidgetItemDataGroup id="widgetItemDG"
+                                                                      width="100%"
+                                                                      dataProvider="{widgetItemArrCol}"
+                                                                      horizontalCenter="0"
+                                                                      widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
+                                                                      widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
+                                                                      widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
                         <CustomHeaderController:layout>
                             <s:HorizontalLayout gap="12"
                                                 horizontalAlign="center"
                                                 useVirtualLayout="true"
                                                 verticalAlign="middle"/>
                         </CustomHeaderController:layout>
-                    </CustomHeaderController:WidgetItemDataGroup>
+                    </CustomHeaderController:CustomWidgetItemDataGroup>
                 </s:HGroup>
 
                 <components:GeocoderComponent id="singleLineSearch"

@@ -29,9 +29,9 @@ import spark.components.DataGroup;
 [Event(name="widgetItemMouseOver", type="flash.events.Event")]
 [Event(name="widgetItemMouseOut", type="flash.events.Event")]
 
-public class WidgetItemDataGroup extends DataGroup
+public class CustomWidgetItemDataGroup extends DataGroup
 {
-    public function WidgetItemDataGroup()
+    public function CustomWidgetItemDataGroup()
     {
         super();
 
