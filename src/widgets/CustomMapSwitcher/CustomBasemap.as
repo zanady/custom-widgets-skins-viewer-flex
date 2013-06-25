@@ -1,14 +1,14 @@
-package widgets.MapSwitcher
+package widgets.CustomMapSwitcher
 {
 
-public class Basemap
+public class CustomBasemap
 {
     public var id:String;
     public var thumbnail:String;
     public var label:String;
     public var visible:Boolean;
 
-    public function Basemap(id:String, label:String, thumbnail:String = null, visible:Boolean = false)
+    public function CustomBasemap(id:String, label:String, thumbnail:String = null, visible:Boolean = false)
     {
         this.id = id;
         this.label = label;
