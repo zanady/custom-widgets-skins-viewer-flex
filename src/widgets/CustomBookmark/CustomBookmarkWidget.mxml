@@ -20,7 +20,8 @@
                    xmlns:s="library://ns.adobe.com/flex/spark"
                    xmlns:mx="library://ns.adobe.com/flex/mx"
                    xmlns:viewer="com.esri.viewer.*"
-                   xmlns:Bookmark="widgets.Bookmark.*"
+                   xmlns:customViewer="com.github.lheberlie.*"
+                   xmlns:CustomBookmark="widgets.CustomBookmark.*"
                    x="600" y="300"
                    hasFocusableChildren="true"
                    implements="mx.managers.IFocusManagerComponent"
@@ -65,7 +66,7 @@
             private var errorLabel:String;
 
             [Bindable]
-            private var bookmarkAL:ArrayList; // used by BookmarkDataGroup
+            private var bookmarkAL:ArrayList; // used by CustomBookmarkDataGroup
             private var bookmarkSO:SharedObject;
             private var bookmarkSOAL:ArrayList; // stored in bookmarkSO
 
@@ -188,7 +189,7 @@
 
             private function addXMLBookmarks(bookmarkList:XMLList):void
             {
-                var bookmark:Bookmark;
+                var bookmark:CustomBookmark;
                 for each (var bookmarkXML:XML in bookmarkList)
                 {
                     bookmark = parseBookmark(bookmarkXML);
@@ -199,9 +200,9 @@
                 }
             }
 
-            private function parseBookmark(bookmarkXML:XML):Bookmark
+            private function parseBookmark(bookmarkXML:XML):CustomBookmark
             {
-                var bookmark:Bookmark;
+                var bookmark:CustomBookmark;
 
                 const extentCoordinates:Array = bookmarkXML.toString().split(" ");
                 const parsedXMin:Number = parseFloat(extentCoordinates[0]);
@@ -215,7 +216,7 @@
 
                 if (hasValidMinMaxCoordinates)
                 {
-                    bookmark = new Bookmark();
+                    bookmark = new CustomBookmark();
                     bookmark.name = bookmarkXML.@name;
                     bookmark.icon = bookmarkXML.@icon;
 
@@ -231,10 +232,10 @@
             private function addWebMapBookmarks():void
             {
                 const bookmarks:Array = configData.webMapData.bookmarks;
-                var bookmark:Bookmark;
+                var bookmark:CustomBookmark;
                 for each (var bookmarkObject:Object in bookmarks)
                 {
-                    bookmark = new Bookmark();
+                    bookmark = new CustomBookmark();
                     bookmark.name = bookmarkObject.name;
                     bookmark.xmin = bookmarkObject.extent.xmin;
                     bookmark.ymin = bookmarkObject.extent.ymin;
@@ -250,7 +251,7 @@
                 if (name)
                 {
                     var ext:Extent = map.extent;
-                    var bookmark:Bookmark = new Bookmark();
+                    var bookmark:CustomBookmark = new CustomBookmark();
                     bookmark.name = name;
                     bookmark.userCreated = true;
                     bookmark.xmin = Number(ext.xmin.toFixed(4));
@@ -279,7 +280,7 @@
 
             private function removeBookmark(event:Event):void
             {
-                var bookmark:Bookmark = ItemRenderer(event.target).data as Bookmark;
+                var bookmark:CustomBookmark = ItemRenderer(event.target).data as CustomBookmark;
                 bookmarkAL.removeItem(bookmark);
                 bookmarkSOAL.removeItem(bookmark);
                 saveBookmarks();
@@ -306,7 +307,7 @@
 
             private function showBookmark(event:Event):void
             {
-                var bookmark:Bookmark = ItemRenderer(event.target).data as Bookmark;
+                var bookmark:CustomBookmark = ItemRenderer(event.target).data as CustomBookmark;
                 if (bookmark)
                 {
                     map.extent = new Extent(bookmark.xmin, bookmark.ymin, bookmark.xmax, bookmark.ymax);
@@ -315,24 +316,24 @@
         ]]>
     </fx:Script>
 
-    <viewer:WidgetTemplate id="wTemplate">
+    <customViewer:CustomWidgetTemplate id="wTemplate">
         <s:Group id="bkmList"
                  width="100%" height="100%"
                  visible="false"
                  visible.bkmList="true">
-            <Bookmark:BookmarkDataGroup id="bookmarkDG"
-                                        width="100%" height="100%"
-                                        bookmarkClick="showBookmark(event)"
-                                        bookmarkDelete="removeBookmark(event)"
-                                        borderVisible="false"
-                                        contentBackgroundAlpha="0"
-                                        dataProvider="{bookmarkAL}">
-                <Bookmark:layout>
+            <CustomBookmark:CustomBookmarkDataGroup id="bookmarkDG"
+                                                    width="100%" height="100%"
+                                                    bookmarkClick="showBookmark(event)"
+                                                    bookmarkDelete="removeBookmark(event)"
+                                                    borderVisible="false"
+                                                    contentBackgroundAlpha="0"
+                                                    dataProvider="{bookmarkAL}">
+                <CustomBookmark:layout>
                     <s:VerticalLayout gap="2"
                                       horizontalAlign="justify"
                                       useVirtualLayout="true"/>
-                </Bookmark:layout>
-            </Bookmark:BookmarkDataGroup>
+                </CustomBookmark:layout>
+            </CustomBookmark:CustomBookmarkDataGroup>
         </s:Group>
         <s:Group id="bkmAdd"
                  width="100%" height="100%"
@@ -349,6 +350,6 @@
                          enter="addBookmark()"/>
             <s:Button click="addBookmark()" label="{submitLabel}"/>
         </s:Group>
-    </viewer:WidgetTemplate>
+    </customViewer:CustomWidgetTemplate>
 
 </viewer:BaseWidget>
