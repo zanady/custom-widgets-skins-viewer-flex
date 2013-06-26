@@ -67,16 +67,7 @@
                 icon="assets/images/i_bookmark.png"
                 label="Bookmarks"
                 url="widgets/CustomBookmark/CustomBookmarkWidget.swf"/>
-        <widget left="590" top="280"
-                config="widgets/Query/QueryWidget_Louisville_PoliceStations.xml"
-                icon="assets/images/i_police.png"
-                label="Louisville Police"
-                url="widgets/Query/QueryWidget.swf"/>
-        <widget left="80" top="280"
-                config="widgets/Search/SearchWidget_Louisville.xml"
-                icon="assets/images/i_search.png"
-                label="Search"
-                url="widgets/Search/SearchWidget.swf"/>
+
         <widget left="410" top="280"
                 config="widgets/GeoRSS/GeoRSSWidget.xml"
                 icon="assets/images/i_rss.png"
@@ -87,11 +78,7 @@
                 icon="assets/images/i_print.png"
                 label="Print"
                 url="widgets/Print/PrintWidget.swf"/>
-        <widget config="widgets/Thematic/ThematicWidget.xml"
-                icon="widgets/Thematic/assets/images/i_thematic_icon.png"
-                label="Thematic"
-                preload="open"
-                url="widgets/Thematic/ThematicWidget.swf"/>
+
         <!--         <widget config="widgets/HeatMap/HeatMapWidget.xml" -->
         <!--                 icon="widgets/HeatMap/assets/images/i_heatmap_icon.png" -->
         <!--                 label="Heat Map" -->
