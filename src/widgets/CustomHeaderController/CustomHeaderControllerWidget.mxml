@@ -577,7 +577,8 @@
                     fontFamily="Arial"
                     fontSize="12"
                     tabStops="S0 S50 S100 S150"
-                    text="Hello, Hal!"/>
+                    text="Hello, Hal!"
+                    visible="false"/>
 
         <s:Rect id="wContainerRect"
                 y="6.5" width="399" height="30"
@@ -626,7 +627,7 @@
         </s:Rect>
 
         <components:GeocoderComponent id="singleLineSearch"
-                                      y="6.5" width="190" height="28"
+                                      y="6.5" width="230" height="28"
                                       right="5"
                                       includeInLayout="false"
                                       visible="false"/>
