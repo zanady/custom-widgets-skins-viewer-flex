@@ -34,6 +34,7 @@ import mx.managers.CursorManager;
 import mx.managers.DragManager;
 
 import spark.components.Application;
+import spark.components.Button;
 import spark.components.Group;
 import spark.components.SkinnableContainer;
 
@@ -61,8 +62,11 @@ public class CustomWidgetTemplate extends SkinnableContainer implements IWidgetT
     [SkinPart(required="false")]
     public var icon:FocusableImage;
 
+    /*[SkinPart(required="false")]
+    public var closeButton:FocusableImage;*/
+
     [SkinPart(required="false")]
-    public var closeButton:FocusableImage;
+    public var closeButton:Button;
 
     [SkinPart(required="false")]
     public var minimizeButton:FocusableImage;
