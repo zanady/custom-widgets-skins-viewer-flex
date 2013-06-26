@@ -49,8 +49,8 @@
             import mx.core.FlexGlobals;
             import mx.events.EffectEvent;
 
-            private const lineSym:SimpleLineSymbol = new SimpleLineSymbol("solid", 0xFF0000, 0.7, 2);
-            private const currentExtentSym:SimpleFillSymbol = new SimpleFillSymbol("solid", 0xFF0000, 0.2, lineSym);
+            /*private const lineSym:SimpleLineSymbol = new SimpleLineSymbol("solid", 0xFF0000, 0.7, 2);
+            private const currentExtentSym:SimpleFillSymbol = new SimpleFillSymbol("solid", 0xFF0000, 0.2, lineSym);*/
 
             [Bindable]
             public var map:Map;
@@ -589,6 +589,18 @@
         <s:State name="noncollapsible"/>
     </s:states>
 
+    <fx:Declarations>
+        <esri:SimpleLineSymbol id="lineSym"
+                               width="2"
+                               alpha="0.7"
+                               color="{getStyle('color')}"
+                               style="solid"/>
+        <esri:SimpleFillSymbol id="currentExtentSym"
+                               alpha="0.2"
+                               color="{getStyle('color')}"
+                               outline="{lineSym}"
+                               style="solid"/>
+    </fx:Declarations>
     <!--
     <s:transitions>
         <s:Transition fromState="collapsed" toState="expanded">
