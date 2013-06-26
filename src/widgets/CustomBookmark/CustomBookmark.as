@@ -13,15 +13,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ///////////////////////////////////////////////////////////////////////////
-package widgets.Bookmark
+package widgets.CustomBookmark
 {
 
 import flash.events.EventDispatcher;
 
 [Bindable]
-[RemoteClass(alias="widgets.Bookmark.Bookmark")]
+[RemoteClass(alias="widgets.CustomBookmark.CustomBookmark")]
 
-public class Bookmark extends EventDispatcher
+public class CustomBookmark extends EventDispatcher
 {
     public var name:String;
 
