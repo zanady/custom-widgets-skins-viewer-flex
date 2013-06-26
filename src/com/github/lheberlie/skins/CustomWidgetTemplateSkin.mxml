@@ -155,13 +155,15 @@
                 <s:Fade duration="100" target="{widgetFrame}"/>
             </s:Sequence>
         </s:Transition>
+        <!--
+        <s:Fade alphaTo="0" target="{contentBackground}"/>
+        <s:Fade alphaTo="0" target="{border}"/>
+        <s:Fade alphaTo="0" target="{headerBackground}"/>
+        -->
         <s:Transition fromState="minimized" toState="closed">
             <s:Sequence effectEnd="effectEndHandler(event)">
                 <s:Fade duration="100" target="{widgetLabel}"/>
                 <s:Parallel duration="100">
-                    <s:Fade alphaTo="0" target="{contentBackground}"/>
-                    <s:Fade alphaTo="0" target="{border}"/>
-                    <s:Fade alphaTo="0" target="{headerBackground}"/>
                     <s:Fade target="{widgetFrame}"/>
                 </s:Parallel>
             </s:Sequence>
@@ -172,7 +174,7 @@
     <s:Group id="widgetFrame"
              left="0" right="0" top="0" bottom="0"
              alpha.closed="0">
-        <s:Rect width="100%" height="100%"
+        <!--<s:Rect width="100%" height="100%"
                 radiusX="5"
                 radiusY="5">
             <s:fill>
@@ -202,30 +204,88 @@
             <s:DropShadowFilter alpha="0.5"
                                 blurX="10"
                                 blurY="10"/>
-        </s:filters>
+        </s:filters>-->
+
+        <s:Rect width="100%" height="100%"
+                radiusX="10"
+                radiusY="10">
+            <s:fill>
+                <s:SolidColor color="#CCE4F1"/>
+            </s:fill>
+            <s:filters>
+                <s:DropShadowFilter alpha="0.5"
+                                    angle="90"
+                                    blurX="7"
+                                    blurY="7"
+                                    color="0x000000"
+                                    distance="1"
+                                    hideObject="false"
+                                    inner="false"
+                                    knockout="false"
+                                    quality="2"
+                                    strength="1"/>
+            </s:filters>
+            <s:stroke>
+                <s:SolidColorStroke caps="none"
+                                    color="#9AC2D6"
+                                    joints="miter"
+                                    miterLimit="4"
+                                    weight="1"/>
+            </s:stroke>
+        </s:Rect>
+        <s:BitmapImage id="windowRight"
+                       left="0"
+                       smooth="true"
+                       source="@Embed('/assets/images/custom/windowright1.png')"/>
+        <s:BitmapImage id="windowLeft"
+                       right="0"
+                       smooth="true"
+                       source="@Embed('/assets/images/custom/windowleft.png')"/>
+        <s:BitmapImage height="36"
+                       left="{windowLeft.width}" right="{windowRight.width}"
+                       fillMode="repeat"
+                       smooth="true"
+                       source="@Embed('/assets/images/custom/windowmiddle1.png')"/>
     </s:Group>
 
     <s:Group id="header"
-             height="30"
+             height="36"
              left="25" left.minimized="55" right="{headerToolGroup.width + 60}" right.minimized="10" top="0">
         <s:Label id="widgetLabel"
                  width="100%"
                  alpha.closed="0"
-                 alpha.minimized="1"
+                 alpha.minimized="0"
                  alpha.open="1"
+                 color="0xFFFFFF"
+                 fontFamily="Arial"
+                 fontSize="15"
+                 fontWeight="bold"
                  maxDisplayedLines="1"
                  showTruncationTip="true"
-                 styleName="WidgetTitle"
                  text="{hostComponent.widgetTitle}"
                  verticalCenter="0"/>
+        <s:filters>
+            <s:DropShadowFilter alpha="0.4"
+                                angle="45.0"
+                                blurX="3"
+                                blurY="3"
+                                color="0x000000"
+                                distance="1"
+                                hideObject="false"
+                                inner="false"
+                                knockout="false"
+                                quality="2"
+                                strength="1"/>
+        </s:filters>
     </s:Group>
 
     <s:Group id="headerToolGroup"
-             height="30"
+             height="36"
              right="70" top="0"
              alpha.closed="0"
              hasFocusableChildren="true"
              includeInLayout.minimized="false"
+             visible.closed="false"
              visible.minimized="false"
              visible.open="true">
         <s:layout>
@@ -234,7 +294,7 @@
     </s:Group>
 
     <s:Group id="minclose"
-             height="30"
+             height="36"
              right="3" top="0"
              includeInLayout.minimized="false"
              visible.closed="false"
@@ -252,14 +312,21 @@
                                    toolTip="{LocalizationUtil.getDefaultString('minimize')}"
                                    useHandCursor="true"
                                    visible="{hostComponent.enableMinimizeButton}"/>
-        <components:FocusableImage id="closeButton"
+        <!--<components:FocusableImage id="closeButton"
                                    buttonMode="true"
                                    focusEnabled="true"
                                    includeInLayout="{hostComponent.enableCloseButton}"
                                    source="assets/images/w_close.png"
                                    toolTip="{LocalizationUtil.getDefaultString('close')}"
                                    useHandCursor="true"
-                                   visible="{hostComponent.enableCloseButton}"/>
+                                   visible="{hostComponent.enableCloseButton}"/>-->
+        <s:Button id="closeButton"
+                  focusEnabled="true"
+                  includeInLayout="{hostComponent.enableCloseButton}"
+                  skinClass="com.github.lheberlie.skins.CloseBtnSkin"
+                  toolTip="{LocalizationUtil.getDefaultString('close')}"
+                  useHandCursor="true"
+                  visible="{hostComponent.enableCloseButton}"/>
     </s:Group>
 
     <components:FocusableImage id="icon"
