@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ///////////////////////////////////////////////////////////////////////////
-package widgets.Bookmark
+package widgets.CustomBookmark
 {
 
 import flash.events.Event;
@@ -25,17 +25,19 @@ import mx.core.ClassFactory;
 
 import spark.components.List;
 import spark.components.supportClasses.ItemRenderer;
+import widgets.CustomBookmark.CustomBookmark;
+import widgets.CustomBookmark.CustomBookmarkItemRenderer;
 
 // these events bubble up from the BookmarkItemRenderer
 [Event(name="bookmarkClick", type="flash.events.Event")]
 [Event(name="bookmarkDelete", type="flash.events.Event")]
 
-public class BookmarkDataGroup extends List
+public class CustomBookmarkDataGroup extends List
 {
-    public function BookmarkDataGroup()
+    public function CustomBookmarkDataGroup()
     {
         super();
-        this.itemRenderer = new ClassFactory(BookmarkItemRenderer);
+        this.itemRenderer = new ClassFactory(CustomBookmarkItemRenderer);
         addEventListener(FocusEvent.FOCUS_IN, focusHandler);
         addEventListener(FocusEvent.FOCUS_OUT, focusHandler);
         arrowKeysWrapFocus = true;
@@ -92,7 +94,7 @@ public class BookmarkDataGroup extends List
         if (enabled && keyboardPressed)
         {
             keyboardPressed = false;
-            var bookmark:Bookmark = selectedItem as Bookmark;
+            var bookmark:CustomBookmark = selectedItem as CustomBookmark;
             var renderer:ItemRenderer = getItemRenderer(bookmark);
 
             if (renderer)
