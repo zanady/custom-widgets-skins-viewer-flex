@@ -60,10 +60,10 @@
     <!-- supported layout property options: horizontal(default)|float|vertical|fix-->
     <widgetcontainer layout="float">
         <widget left="430" top="90"
-                config="widgets/Bookmark/BookmarkWidget.xml"
+                config="widgets/CustomBookmark/CustomBookmarkWidget.xml"
                 icon="assets/images/i_bookmark.png"
                 label="Bookmarks"
-                url="widgets/Bookmark/BookmarkWidget.swf"/>
+                url="widgets/CustomBookmark/CustomBookmarkWidget.swf"/>
         <widget left="590" top="280"
                 config="widgets/Query/QueryWidget_Louisville_PoliceStations.xml"
                 icon="assets/images/i_police.png"
