@@ -37,11 +37,11 @@
             private const BOOKMARK_DELETE:String = "bookmarkDelete";
 
             [Bindable]
-            private var bookmark:Bookmark;
+            private var bookmark:CustomBookmark;
 
             private function itemrenderer_dataChangeHandler(event:FlexEvent):void
             {
-                bookmark = data as Bookmark;
+                bookmark = data as CustomBookmark;
             }
 
             private function itemrenderer_clickHandler(event:MouseEvent):void
