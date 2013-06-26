@@ -16,3 +16,8 @@ customViewer|CustomWidgetTemplate
     shadowDistance: 5;
     skinClass: ClassReference("com.github.lheberlie.skins.CustomWidgetTemplateSkin");
 }
+
+esri|Geocoder
+{
+    skinClass: ClassReference("widgets.CustomHeaderController.CustomGeocoderSkin");
+}
