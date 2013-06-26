@@ -1,0 +1,18 @@
+/* CSS file - Standard Stylesheet */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace esri "http://www.esri.com/2008/ags";
+@namespace customViewer "com.github.lheberlie.*";
+
+customViewer|CustomWidgetTemplate
+{
+    background-alpha: 0.8;
+    borderStyle: solid;
+    borderThickness: 1;
+    cornerRadius: 5;
+    dropShadowVisible: true;
+    horizontalScrollPolicy: off;
+    shadowDirection: right;
+    shadowDistance: 5;
+    skinClass: ClassReference("com.github.lheberlie.skins.CustomWidgetTemplateSkin");
+}
