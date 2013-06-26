@@ -31,16 +31,16 @@
     </fx:Declarations>
 
     <fx:Metadata>
-        [HostComponent("com.esri.viewer.WidgetTemplate")]
+        [HostComponent("com.github.lheberlie.CustomWidgetTemplate")]
     </fx:Metadata>
     <fx:Script>
         <![CDATA[
             import com.esri.viewer.utils.LocalizationUtil;
 
-            import flashx.textLayout.formats.TextAlign;
-
             import mx.events.EffectEvent;
             import mx.events.FlexEvent;
+
+            import flashx.textLayout.formats.TextAlign;
 
             protected function effectEndHandler(event:EffectEvent):void
             {
