@@ -176,7 +176,7 @@
                 toc.excludeGraphicsLayers = true;
                 toc.includeLegendItems = includeLegendItems;
                 var tocLayers:ArrayCollection = toc.dataProvider as ArrayCollection;
-                opLayersButton.visible = tocLayers.length ? true : false;
+//                opLayersButton.visible = tocLayers.length ? true : false;
                 tocLayers.addEventListener(CollectionEvent.COLLECTION_CHANGE, toc_collectionChangeHandler);
                 toc.expandLayerItems = expandLayerItems;
             }
@@ -187,14 +187,14 @@
                 {
                     if (ArrayCollection(event.target).length)
                     {
-                        opLayersButton.visible = true;
+//                        opLayersButton.visible = true;
                     }
                 }
                 else if (event.kind == CollectionEventKind.REMOVE)
                 {
                     if (!ArrayCollection(event.target).length)
                     {
-                        opLayersButton.visible = false;
+//                        opLayersButton.visible = false;
                     }
                 }
             }
@@ -242,7 +242,7 @@
                 shouldShowBasemaps = false;
                 shouldShowOpLayers = true;
                 hideOpLayersTimer.reset();
-                updateContainerPosition(opLayersButton, opLayersContainer);
+//                updateContainerPosition(opLayersButton, opLayersContainer);
             }
 
             private function opLayersButton_clickHandler(event:MouseEvent):void
@@ -254,7 +254,7 @@
                     shouldShowBasemaps = false;
                     if (shouldShowOpLayers)
                     {
-                        updateContainerPosition(opLayersButton, opLayersContainer);
+//                        updateContainerPosition(opLayersButton, opLayersContainer);
                         toc.setFocus();
                     }
                 }
@@ -381,7 +381,7 @@
                     shouldShowBasemaps = shouldShowOpLayers = false;
                     if (event.currentTarget == opLayersContainer)
                     {
-                        opLayersButton.setFocus();
+//                        opLayersButton.setFocus();
                     }
                     else if (event.currentTarget == basemapsContainer)
                     {
@@ -413,7 +413,7 @@
     </viewer:states>
 
     <s:HGroup id="mapLayersContainer" gap="9">
-        <s:Button id="opLayersButton"
+        <!--<s:Button id="opLayersButton"
                   height="100%"
                   click="opLayersButton_clickHandler(event)"
                   keyUp="opLayersButton_keyUpHandler(event)"
@@ -422,7 +422,7 @@
                   rollOut="startHideTimer()"
                   rollOver="opLayerListButton_rollOverHandler(event)"
                   tabIndex="1"
-                  visible="false"/>
+                  visible="false"/>-->
 
         <s:ButtonBar id="basemapsButtonBar"
                      change="dispatchChangeBasemapEvent()"
@@ -441,7 +441,7 @@
                   maxWidth="362"
                   rollOut="startBasemapsHideTimer()"
                   rollOver="basemapsButton_rollOverHandler(event)"
-                  skinClass="com.esri.viewer.skins.BasemapsButtonSkin"
+                  skinClass="widgets.CustomMapSwitcher.CustomBasemapsButtonSkin"
                   tabIndex="4"/>
     </s:HGroup>
 
@@ -462,6 +462,7 @@
 
     <s:BorderContainer id="basemapsContainer"
                        backgroundColor="{getStyle('contentBackgroundColor')}"
+                       cornerRadius="0"
                        includeIn="thumbnailOptions"
                        includeInLayout="false"
                        keyFocusChange="keyFocusChangeHandler(event)"
