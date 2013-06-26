@@ -13,9 +13,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ///////////////////////////////////////////////////////////////////////////
-package com.esri.viewer
+package com.github.lheberlie
 {
 
+import com.esri.viewer.AppEvent;
+import com.esri.viewer.IBaseWidget;
+import com.esri.viewer.IWidgetTemplate;
 import com.esri.viewer.components.FocusableImage;
 import com.esri.viewer.components.TitlebarButton;
 import com.esri.viewer.utils.LocalizationUtil;
@@ -44,7 +47,7 @@ import spark.components.SkinnableContainer;
 [SkinState("minimized")]
 [SkinState("closed")]
 
-public class WidgetTemplate extends SkinnableContainer implements IWidgetTemplate
+public class CustomWidgetTemplate extends SkinnableContainer implements IWidgetTemplate
 {
     [SkinPart(required="false")]
     public var widgetFrame:Group;
@@ -249,7 +252,7 @@ public class WidgetTemplate extends SkinnableContainer implements IWidgetTemplat
         }
     }
 
-    public function WidgetTemplate()
+    public function CustomWidgetTemplate()
     {
         super();
 
