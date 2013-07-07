@@ -11,8 +11,10 @@
     <subtitle>a configurable web mapping application</subtitle>
     <logo>assets/images/logo.png</logo>
     <style>
-        <colors>0x000000,0xCCE4F1,0xEBF4FF,0xDEEBFF,0xFFFFFF</colors>
+        <!--  text color, background color, rollover color, selection color, and title text color -->
+        <colors>0x000000,0xb19f8d,0xfcfbfb,0x694820,0xFFFFFF</colors>
         <alpha>0.8</alpha>
+        <font name="Helvetica"/>
     </style>
     <!-- replace the following url with your own geometryservice -->
     <geometryservice url="http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"/>
@@ -23,10 +25,9 @@
             config="widgets/Navigation/NavigationWidget.xml"
             url="widgets/Navigation/NavigationWidget.swf"/>
     -->
-    <widget right="50" top="55"
+    <widget right="70" top="70"
             config="widgets/CustomOverviewMap/CustomOverviewMapWidget.xml"
             url="widgets/CustomOverviewMap/CustomOverviewMapWidget.swf"/>
-
     <widget right="28" bottom="55"
             config="widgets/CustomMapSwitcher/CustomMapSwitcherWidget.xml"
             url="widgets/CustomMapSwitcher/CustomMapSwitcherWidget.swf"/>
@@ -36,48 +37,44 @@
 
     <map top="40"
          addarcgisbasemaps="true"
-         fullextent="-20000000 -20000000 20000000 20000000"
-         initialextent="-14083000 3139000 -10879000 5458000"
-         wraparound180="true">
-        <operationallayers>
-            <layer alpha="0.5"
-                   label="Demographics"
-                   type="tiled"
-                   url="http://server.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_Median_Household_Income/MapServer"
-                   visible="false">
-                <sublayer id="1" popupconfig="popups/PopUp_Demographics_BlockGroups.xml"/>
-                <sublayer id="2" popupconfig="popups/PopUp_Demographics_Tracts.xml"/>
-                <sublayer id="3" popupconfig="popups/PopUp_Demographics_Counties.xml"/>
-                <sublayer id="4" popupconfig="popups/PopUp_Demographics_States.xml"/>
-            </layer>
-            <layer alpha="1.0"
-                   label="Fires"
-                   popupconfig="popups/PopUp_Fires.xml"
-                   type="feature"
-                   url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0"
-                   visible="false"/>
-        </operationallayers>
-    </map>
+         attributionvisible="true"
+         esrilogovisible="true"
+         initialextent="-12602154.163334595 4027197.336184813 -12483982.517605668 4097060.780037491"
+         itemid="df8bcc10430f48878b01c96e907a1fc3"
+         openhandcursorvisible="false"
+         portalurl="https://www.arcgis.com/"
+         scalebar="default"
+         scalebarvisible="true"
+         wraparound180="true"
+         zoomslidervisible="false"/>
+
 
     <!-- widgets organized into widget containers that manage close/open etc -->
     <!-- supported layout property options: horizontal(default)|float|vertical|fix-->
     <widgetcontainer layout="float">
         <widget left="430" top="90"
                 config="widgets/CustomBookmark/CustomBookmarkWidget.xml"
-                icon="assets/images/i_bookmark.png"
-                label="Bookmarks"
+                icon="assets/images/i_bookmark2.png"
+                label="Focus Areas"
                 url="widgets/CustomBookmark/CustomBookmarkWidget.swf"/>
 
+        <widget left="430" top="90"
+                config="widgets/CustomLayerList/CustomLayerListWidget.xml"
+                icon="assets/images/i_layers.png"
+                label="Content"
+                url="widgets/CustomLayerList/CustomLayerListWidget.swf"/>
+
         <widget left="410" top="280"
-                config="widgets/GeoRSS/GeoRSSWidget.xml"
-                icon="assets/images/i_rss.png"
-                label="Earthquakes"
-                url="widgets/GeoRSS/GeoRSSWidget.swf"/>
+                config="widgets/CustomQuery/CustomQueryWidget.xml"
+                icon="assets/images/custom/i_wild_fire_widget.png"
+                label="Severe Fires"
+                url="widgets/CustomQuery/CustomQueryWidget.swf"/>
+
         <widget left="390" top="400"
-                config="widgets/Print/PrintWidget.xml"
+                config="widgets/CustomPrint/CustomPrintWidget.xml"
                 icon="assets/images/i_print.png"
                 label="Print"
-                url="widgets/Print/PrintWidget.swf"/>
+                url="widgets/CustomPrint/CustomPrintWidget.swf"/>
 
         <!--         <widget config="widgets/HeatMap/HeatMapWidget.xml" -->
         <!--                 icon="widgets/HeatMap/assets/images/i_heatmap_icon.png" -->
