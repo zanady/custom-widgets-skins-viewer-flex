@@ -667,8 +667,14 @@
         </s:stroke>
     </s:Rect>-->
 
+    <s:Image id="overview_bg"
+             cacheAsBitmap="true"
+             mouseChildren="false"
+             mouseEnabled="false"
+             source="@Embed('/assets/images/custom/overview_wildfire_bg.png')"/>
+
     <esri:Map id="overviewMap"
-              width="207" height="155"
+              width="173" height="173"
               attributionVisible="false"
               cacheAsBitmap="true"
               clickRecenterEnabled="false"
@@ -689,11 +695,18 @@
              cacheAsBitmap="true"
              mouseChildren="false"
              mouseEnabled="false"
-             source="@Embed('/assets/images/custom/overview.png')"/>
+             source="@Embed('/assets/images/custom/overview_wildfire.png')"/>
 
     <s:Image id="overviewMask"
-             left="3" top="3"
              cacheAsBitmap="true"
-             source="@Embed('/assets/images/custom/overviewMask.png')"/>
-
+             source="@Embed('/assets/images/custom/overview_wildfire_mask.png')"/>
+    <s:filters>
+        <s:DropShadowFilter alpha="0.65"
+                            angle="45"
+                            blurX="4"
+                            blurY="4"
+                            color="#000000"
+                            distance="7"
+                            quality="2"/>
+    </s:filters>
 </s:SkinnableContainer>

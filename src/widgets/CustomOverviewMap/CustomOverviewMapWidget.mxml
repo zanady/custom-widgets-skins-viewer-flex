@@ -77,5 +77,4 @@
     </fx:Script>
 
     <CustomOverviewMap:CustomOverviewMapComponent id="overviewMap"/>
-
 </viewer:BaseWidget>
