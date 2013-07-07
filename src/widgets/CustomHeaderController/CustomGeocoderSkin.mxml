@@ -33,7 +33,7 @@ The default skin class for the Geocoder component.
             import mx.core.FlexVersion;
 
             [Bindable]
-            [Embed(source="../../assets/skins/loader.swf")]
+            [Embed(source="../../assets/skins/loader_white.swf")]
             private var loader:Class;
             [Bindable]
             [Embed(source="../../assets/skins/clear-cross-12.png")]
@@ -264,12 +264,18 @@ The default skin class for the Geocoder component.
     <!--- @copy spark.components.supportClasses.SkinnableTextBase#textDisplay -->
     <s:RichEditableText id="textDisplay"
                         left="1" right="1" top="1" bottom="1"
+                        color="#333333"
+                        fontFamily="Helvetica"
+                        fontSize="14"
+                        trackingLeft="-2%"
                         verticalAlign="middle"
                         widthInChars="10"/>
     <!-- prompt -->
     <!--- Defines the Label that is used for prompt text. The includeInLayout property is false so the prompt text does not affect measurement. -->
     <s:Label id="promptDisplay"
-             color="{getStyle('color')}"
+             color="#333333"
+             fontFamily="Helvetica"
+             fontSize="14"
              includeIn="normalWithPrompt,disabledWithPrompt"
              includeInLayout="false"
              maxDisplayedLines="1"
@@ -301,7 +307,7 @@ The default skin class for the Geocoder component.
         <supportClasses:GeocoderResultList id="resultList"
                                            width="100%"
                                            focusEnabled="false"
-                                           itemRenderer="com.esri.ags.skins.supportClasses.GeocoderResultListItemRenderer"
+                                           itemRenderer="widgets.CustomHeaderController.supportClasses.CustomGeocoderResultListItemRenderer"
                                            searchText="{hostComponent.text}"
                                            visible="{hostComponent.searchResults.length &gt; 0}">
             <supportClasses:layout>
