@@ -210,7 +210,16 @@
                 radiusX="10"
                 radiusY="10">
             <s:fill>
-                <s:SolidColor color="#CCE4F1"/>
+                <s:LinearGradient x="143" y="0"
+                                  rotation="90"
+                                  scaleX="126">
+                    <s:GradientEntry alpha="1"
+                                     color="#fbfbf9"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#b19f8d"
+                                     ratio="1"/>
+                </s:LinearGradient>
             </s:fill>
             <s:filters>
                 <s:DropShadowFilter alpha="0.5"
@@ -227,13 +236,13 @@
             </s:filters>
             <s:stroke>
                 <s:SolidColorStroke caps="none"
-                                    color="#9AC2D6"
+                                    color="#3e2312"
                                     joints="miter"
                                     miterLimit="4"
                                     weight="1"/>
             </s:stroke>
         </s:Rect>
-        <s:BitmapImage id="windowRight"
+        <!--<s:BitmapImage id="windowRight"
                        left="0"
                        smooth="true"
                        source="@Embed('/assets/images/custom/windowright1.png')"/>
@@ -245,7 +254,77 @@
                        left="{windowLeft.width}" right="{windowRight.width}"
                        fillMode="repeat"
                        smooth="true"
-                       source="@Embed('/assets/images/custom/windowmiddle1.png')"/>
+                       source="@Embed('/assets/images/custom/windowmiddle1.png')"/>-->
+
+        <!-- WIDGET TOP LEFT HEADER BACKGROUND -->
+        <s:Path id="top_left"
+                alpha="1"
+                blendMode="normal"
+                data="M 0 27 L 0 36 L 30 36 L 30 0 L 12 0 C 12 0 10 0 10 0 C 4 0 0 4 0 9 C 0 9 0 27 0 27 Z "
+                winding="evenOdd">
+            <s:fill>
+                <s:LinearGradient x="124" y="36"
+                                  rotation="-90"
+                                  scaleX="36">
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#614021"
+                                     ratio="0.41"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Path>
+        <!-- WIDGET TOP CENTER HEADER BACKGROUND -->
+        <s:Rect id="top_center"
+                x="30" y="0" width="19" height="36"
+                left="{top_left.width}" right="{top_right.width}"
+                alpha="1"
+                blendMode="normal"
+                radiusX="0"
+                radiusY="0">
+            <s:fill>
+                <s:LinearGradient x="78" y="36"
+                                  rotation="-90"
+                                  scaleX="36">
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#614021"
+                                     ratio="0.41"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Rect>
+        <!-- WIDGET TOP RIGHT HEADER BACKGROUND -->
+        <s:Path id="top_right"
+                right="0"
+                alpha="1"
+                blendMode="normal"
+                data="M 49 36 L 67 36 L 79 36 L 79 27 C 79 27 79 9 79 9 C 79 4 75 0 69 0 C 69 0 49 0 49 0 L 49 36 Z "
+                winding="evenOdd">
+            <s:fill>
+                <s:LinearGradient x="173" y="36"
+                                  rotation="-90"
+                                  scaleX="36">
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#614021"
+                                     ratio="0.41"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Path>
     </s:Group>
 
     <s:Group id="header"
@@ -257,7 +336,7 @@
                  alpha.minimized="0"
                  alpha.open="1"
                  color="0xFFFFFF"
-                 fontFamily="Arial"
+                 fontFamily="Helvetica"
                  fontSize="15"
                  fontWeight="bold"
                  maxDisplayedLines="1"
