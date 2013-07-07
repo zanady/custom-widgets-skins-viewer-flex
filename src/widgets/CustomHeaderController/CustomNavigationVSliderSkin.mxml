@@ -29,7 +29,7 @@
     <fx:Script>
         /* Define the skin elements that should not be colorized.
         For slider, the skin itself is colorized but the individual parts are not. */
-        static private const exclusions:Array = [ "track", "thumb" ];
+        static private const exclusions:Array = [ "track" ];
 
         /**
          * @private
@@ -72,9 +72,9 @@
             {
                 var tColor:Number = getStyle("color");
                 var tInterval:Number = 1;
-                var tLength:Number = 3;
+                var tLength:Number = 5;
                 var tOffset:Number = -3;
-                var tThickness:Number = 1;
+                var tThickness:Number = 2;
 
                 var g:Graphics = ticks.graphics;
                 var yPos:Number;
@@ -162,12 +162,13 @@
                 </s:Rect>
                 <s:Label id="labelDisplay"
                          left="5" right="5" top="5" bottom="5"
-                         color="{getStyle('color')}"
-                         fontSize="11"
-                         fontWeight="normal"
+                         color="#333333"
+                         fontFamily="Helvetica"
+                         fontWeight="bold"
                          horizontalCenter="0"
                          text="{data}"
                          textAlign="center"
+                         trackingLeft="-2%"
                          verticalAlign="middle"
                          verticalCenter="1">
                 </s:Label>
@@ -179,14 +180,14 @@
                     left="0" top="0" bottom="0"/>
 
     <s:Button id="track"
-              height="100"
+              width="11" height="100"
               left="{ticks.width}" right="0" top="0" bottom="0"
               minHeight="33"
-              skinClass="spark.skins.spark.VSliderTrackSkin"/>
+              skinClass="widgets.CustomHeaderController.CustomNavigationVSliderTrackSkin"/>
 
     <s:Button id="thumb"
               width="11" height="11"
               left="{ticks.width}" right="0"
-              skinClass="spark.skins.spark.VSliderThumbSkin"/>
+              skinClass="widgets.CustomHeaderController.CustomNavigationVSliderThumbSkin"/>
 
 </s:SparkSkin>

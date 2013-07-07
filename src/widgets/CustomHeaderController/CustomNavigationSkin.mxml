@@ -67,14 +67,15 @@
 
         <!--- Button for zooming in. -->
         <s:Button id="zoomInButton"
+                  width="16" height="16"
                   enabled.disabled="false"
                   enabled.disabledWithSlider="false"
-                  skinClass="com.esri.ags.skins.NavigationZoomInButtonSkin"
+                  skinClass="widgets.CustomHeaderController.CustomNavigationZoomInButtonSkin"
                   toolTip="{resourceManager.getString('ESRIMessages', 'zoomInTooltip')}"/>
 
         <!--- Slider that sets the scale. -->
         <s:VSlider id="slider"
-                   height="130"
+                   height="155"
                    dataTipFormatFunction="formatSliderDataTip"
                    enabled.disabled="false"
                    enabled.disabledWithSlider="false"
@@ -88,9 +89,10 @@
 
         <!--- Button for zooming out. -->
         <s:Button id="zoomOutButton"
+                  width="16" height="16"
                   enabled.disabled="false"
                   enabled.disabledWithSlider="false"
-                  skinClass="com.esri.ags.skins.NavigationZoomOutButtonSkin"
+                  skinClass="widgets.CustomHeaderController.CustomNavigationZoomOutButtonSkin"
                   toolTip="{resourceManager.getString('ESRIMessages', 'zoomOutTooltip')}"/>
 
     </s:VGroup>
