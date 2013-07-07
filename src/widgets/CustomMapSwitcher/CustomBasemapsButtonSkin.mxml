@@ -44,10 +44,159 @@
     </s:states>
 
     <!-- layer 8: icon-->
-    <s:BitmapImage id="icon"
+    <!--<s:BitmapImage id="icon"
                    left="10"
                    minWidth="16"
                    source="@Embed('assets/images/custom/basemap.png')"
-                   verticalCenter="1"/>
+                   verticalCenter="1"/>-->
 
+    <s:Group id="button_up_group" includeIn="up,down">
+        <s:Path alpha="1"
+                blendMode="normal"
+                data="M 2 26 C 2 19 9 12 17 12 C 17 12 119 12 119 12 C 127 12 134 19 134 26 C 134 26 134 29 134 29 C 134 36 127 43 119 43 C 119 43 17 43 17 43 C 9 43 2 36 2 29 C 2 29 2 26 2 26 Z "
+                winding="evenOdd">
+            <s:fill>
+                <s:LinearGradient x="68" y="12"
+                                  rotation="90"
+                                  scaleX="31">
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#614021"
+                                     ratio="0.41"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Path>
+        <s:Path id="button_up"
+                alpha="1"
+                blendMode="normal"
+                data="M 108 28 C 108 23 112 19 117 19 C 122 19 126 23 126 28 C 126 33 122 37 117 37 C 112 37 108 33 108 28 Z "
+                winding="evenOdd">
+            <s:fill>
+                <s:LinearGradient x="117" y="19"
+                                  rotation="90"
+                                  scaleX="18">
+                    <s:GradientEntry alpha="1"
+                                     color="#fbfbf9"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#b19f8d"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Path>
+    </s:Group>
+    <s:Group id="button_down_group" includeIn="over,down">
+        <s:Path alpha="1"
+                blendMode="normal"
+                data="M 2 26 C 2 19 9 12 17 12 C 17 12 119 12 119 12 C 127 12 134 19 134 26 C 134 26 134 29 134 29 C 134 36 127 43 119 43 C 119 43 17 43 17 43 C 9 43 2 36 2 29 C 2 29 2 26 2 26 Z "
+                winding="evenOdd">
+            <s:fill>
+                <s:LinearGradient x="68" y="12"
+                                  rotation="90"
+                                  scaleX="31">
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#614021"
+                                     ratio="0.41"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Path>
+        <s:Path id="button_down"
+                alpha="1"
+                blendMode="normal"
+                data="M 108 28 C 108 23 112 19 117 19 C 122 19 126 23 126 28 C 126 33 122 37 117 37 C 112 37 108 33 108 28 Z "
+                winding="evenOdd">
+            <s:fill>
+                <s:LinearGradient x="117" y="19"
+                                  rotation="90"
+                                  scaleX="18">
+                    <s:GradientEntry alpha="1"
+                                     color="#b19f8d"
+                                     ratio="0"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#fbfbf9"
+                                     ratio="1"/>
+                </s:LinearGradient>
+            </s:fill>
+        </s:Path>
+
+    </s:Group>
+
+    <s:Path id="arrow_up"
+            alpha="1"
+            blendMode="normal"
+            data="M 117 24 L 123 30 L 111 30 L 117 24 Z "
+            includeIn="over"
+            winding="evenOdd">
+        <s:fill>
+            <s:LinearGradient x="117" y="24"
+                              rotation="90"
+                              scaleX="6">
+                <s:GradientEntry alpha="1"
+                                 color="#85623f"
+                                 ratio="0"/>
+                <s:GradientEntry alpha="1"
+                                 color="#614021"
+                                 ratio="0.41"/>
+                <s:GradientEntry alpha="1"
+                                 color="#3e2312"
+                                 ratio="1"/>
+            </s:LinearGradient>
+        </s:fill>
+    </s:Path>
+    <s:Path id="arrow_down"
+            alpha="1"
+            blendMode="normal"
+            data="M 117 31 L 123 25 L 111 25 L 117 31 Z "
+            includeIn="up"
+            winding="evenOdd">
+        <s:fill>
+            <s:LinearGradient x="117" y="31"
+                              rotation="-90"
+                              scaleX="6">
+                <s:GradientEntry alpha="1"
+                                 color="#85623f"
+                                 ratio="0"/>
+                <s:GradientEntry alpha="1"
+                                 color="#614021"
+                                 ratio="0.41"/>
+                <s:GradientEntry alpha="1"
+                                 color="#3e2312"
+                                 ratio="1"/>
+            </s:LinearGradient>
+        </s:fill>
+    </s:Path>
+
+    <s:Line id="Line"
+            alpha="1"
+            blendMode="normal"
+            xFrom="103"
+            xTo="103"
+            yFrom="12"
+            yTo="43">
+        <s:stroke>
+            <s:SolidColorStroke caps="none"
+                                color="#ffffff"
+                                weight="1"/>
+        </s:stroke>
+    </s:Line>
+
+    <s:Label id="labelDisplay"
+             x="28" y="22"
+             color="#FFFFFF"
+             fontFamily="Helvetica"
+             fontSize="14"
+             textAlign="center"
+             verticalAlign="middle">
+    </s:Label>
 </s:SparkButtonSkin>
