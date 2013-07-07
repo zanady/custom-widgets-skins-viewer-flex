@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration>
+    <taskurl>http://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task</taskurl>
+    <title visible="true"> Final Map Output</title>
+    <author>Author's name</author>
+    <usescale defaultvalue="577791">false</usescale>
+    <copyright defaultvalue="Wildfire 2013" visible="true">
+    </copyright>
+    <labels>
+        <formatslabel>Output format</formatslabel>
+    </labels>
+</configuration>
+
+<!--
+    See Print widget tag reference at
+    http://links.esri.com/printwidget
+-->
