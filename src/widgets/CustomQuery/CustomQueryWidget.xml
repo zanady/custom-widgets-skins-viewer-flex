@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<configuration>
+    <layer>http://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Wildfire_Activity/MapServer/0</layer>
+    <query/>
+    <titlefield>FIRE_NAME</titlefield>
+    <orderbyfields>STATE ASC,FIRE_NAME ASC</orderbyfields>
+    <linkfield>HOTLINK</linkfield>
+    <refreshrate>500</refreshrate>
+    <zoomscale/>
+    <shareresults>false</shareresults>
+    <orderbyfields>FIRE_NAME,STATE</orderbyfields>
+    <fields all="false">
+        <field name="FIRE_NAME" alias="Fire name"/>
+        <field name="STATE" alias="State"/>
+        <field name="ACRES" alias="Acres"/>
+        <field name="REPORT_DATE"
+               alias="Date reported"
+               dateformat="MMM DD"/>
+        <field name="HOTLINK" alias="Article"/>
+    </fields>
+</configuration>
