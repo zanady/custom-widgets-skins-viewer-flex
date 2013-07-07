@@ -309,7 +309,7 @@
             private function widgetItemDG_widgetItemMouseOverHandler(event:Event):void
             {
                 var pointGlobal:Point = ItemRenderer(event.target).localToGlobal(new Point(0, 0));
-                var pointLocal:Point = headerGroup.globalToLocal(pointGlobal); // get the local coordinates where the menuItem will be shown
+                var pointLocal:Point = widgetContainerGroup.globalToLocal(pointGlobal); // get the local coordinates where the menuItem will be shown
 
                 xOver = pointLocal.x;
 
@@ -554,103 +554,256 @@
             </s:filters>
         </s:Group>
         -->
-    <s:Group id="headerGroup"
+    <s:Group id="header_bg"
              width="100%" height="100%">
-        <s:BitmapImage id="topRightImage"
-                       y="0"
-                       right="0"
-                       smooth="true"
-                       source="@Embed('/assets/images/custom/topright.png')"/>
-        <s:BitmapImage id="logoImage"
-                       x="0" y="0"
-                       smooth="true"
-                       source="@Embed('/assets/images/custom/logo.png')"/>
-        <s:BitmapImage y="0" height="49"
-                       left="{logoImage.width}" right="{topRightImage.width}"
-                       fillMode="repeat"
-                       smooth="true"
-                       source="@Embed('/assets/images/custom/top.png')"/>
-        <s:RichText id="welcomeTxt"
-                    y="18"
-                    right="210"
-                    color="#FFFFFF"
-                    fontFamily="Arial"
-                    fontSize="12"
-                    tabStops="S0 S50 S100 S150"
-                    text="Hello, Hal!"
-                    visible="false"/>
-
-        <s:Rect id="wContainerRect"
-                y="6.5" width="399" height="30"
-                left="{logoImage.width + (welcomeTxt.x - logoImage.width)/2 - 200 }"
-                radiusX="15">
-            <s:stroke>
-                <s:SolidColorStroke caps="none"
-                                    color="#007DB8"
-                                    joints="miter"
-                                    miterLimit="4"
-                                    weight="1"/>
-            </s:stroke>
+        <!-- TOP LEFT BACKGROUND ASSET -->
+        <s:Path id="top_left_bg"
+                width="320" height="146"
+                alpha="1"
+                blendMode="normal"
+                data="M 0 0 C 0 0 0 119 0 119 C 16 135 24 146 55 146 C 55 146 204 146 204 146 C 223 146 246 137 257 114 C 266 93 276 64 296 60 C 307 59 310 60 320 60 C 320 60 320 0 320 0 L 0 0 Z "
+                winding="evenOdd">
             <s:fill>
-                <s:LinearGradient rotation="90">
-                    <s:GradientEntry alpha="1.0"
-                                     color="#FFFFFF"
+                <s:LinearGradient x="160" y="0"
+                                  rotation="90"
+                                  scaleX="146">
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
                                      ratio="0"/>
-                    <s:GradientEntry alpha="1.0"
-                                     color="#509EC7"
+                    <s:GradientEntry alpha="1"
+                                     color="#614021"
+                                     ratio="0.41"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
                                      ratio="1"/>
                 </s:LinearGradient>
             </s:fill>
-        </s:Rect>
-        <s:Rect id="navigationRect"
-                y="55.5" width="169" height="30"
-                right="7"
-                radiusX="15"
-                rotation="90">
-            <s:stroke>
-                <s:SolidColorStroke caps="none"
-                                    color="#007DB8"
-                                    joints="miter"
-                                    miterLimit="4"
-                                    weight="1"/>
-            </s:stroke>
+        </s:Path>
+        <!-- TOP CENTER BACKGROUND ASSET -->
+        <s:Group id="top_header_bg"
+                 x="{top_left_bg.width}" y="0" width="{(top_right_bg.x + top_right_bg.width) - top_left_bg.width}">
+            <s:transform>
+                <s:Transform>
+                    <s:matrix>
+                        <s:Matrix a="0.8518518518518519"
+                                  tx="-273"
+                                  ty="0"/>
+                    </s:matrix>
+                </s:Transform>
+            </s:transform>
+            <s:Rect id="top_center_bg"
+                    width="100%" height="60"
+                    alpha="1"
+                    blendMode="normal"
+                    radiusX="0"
+                    radiusY="0">
+                <s:fill>
+                    <s:LinearGradient x="115" y="0"
+                                      rotation="90"
+                                      scaleX="159">
+                        <s:GradientEntry alpha="1"
+                                         color="#85623f"
+                                         ratio="0"/>
+                        <s:GradientEntry alpha="1"
+                                         color="#614021"
+                                         ratio="0.36"/>
+                        <s:GradientEntry alpha="1"
+                                         color="#3e2312"
+                                         ratio="1"/>
+                    </s:LinearGradient>
+                </s:fill>
+            </s:Rect>
+        </s:Group>
+        <!-- TOP RIGHT BACKGROUND ASSET -->
+        <s:Path id="top_right_bg"
+                width="250" height="317"
+                right="0"
+                alpha="1"
+                blendMode="normal"
+                data="M 190 286 C 190 303 203 317 220 317 C 237 317 250 303 250 286 C 250 285 250 284 249 283 C 249 283 250 283 250 283 L 250 60 L 250 0 L 190 0 L 0 0 L 0 60 C 0 60 102 60 102 60 C 149 60 188 99 190 148 C 190 148 190 148 190 148 L 190 283 C 190 283 191 283 191 283 C 190 284 190 285 190 286 Z "
+                winding="evenOdd">
             <s:fill>
-                <s:LinearGradient rotation="90">
-                    <s:GradientEntry alpha="1.0"
-                                     color="#FFFFFF"
+                <s:LinearGradient x="125" y="0"
+                                  rotation="90"
+                                  scaleX="317">
+                    <s:GradientEntry alpha="1"
+                                     color="#85623f"
                                      ratio="0"/>
-                    <s:GradientEntry alpha="1.0"
-                                     color="#509EC7"
+                    <s:GradientEntry alpha="1"
+                                     color="#61401a"
+                                     ratio="0.17"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
+                                     ratio="0.57"/>
+                    <s:GradientEntry alpha="1"
+                                     color="#3e2312"
                                      ratio="1"/>
                 </s:LinearGradient>
             </s:fill>
-        </s:Rect>
+        </s:Path>
+        <!-- HEADER HIGHLIGHT ON TOP OF HEADER BACKGROUND -->
+        <s:Group id="header_highlight"
+                 x="0" y="0" width="100%" height="100%">
+            <s:Rect id="top_highlight"
+                    width="100%" height="30"
+                    alpha="1"
+                    blendMode="normal"
+                    radiusX="0"
+                    radiusY="0">
+                <s:fill>
+                    <s:LinearGradient x="400" y="0"
+                                      rotation="90"
+                                      scaleX="30">
+                        <s:GradientEntry alpha="0.4980392156862745"
+                                         color="#694820"
+                                         ratio="0"/>
+                        <s:GradientEntry alpha="0.4980392156862745"
+                                         color="#fcfbfb"
+                                         ratio="0.5"/>
+                        <s:GradientEntry alpha="0.5082833231945516"
+                                         color="#ffffff"
+                                         ratio="0.51"/>
+                        <s:GradientEntry alpha="1"
+                                         color="#6a4a22"
+                                         ratio="0.99"/>
+                    </s:LinearGradient>
+                </s:fill>
+            </s:Rect>
+        </s:Group>
+        <!-- TOP LEFT COMPONENT ON TOP OF HEADER BACKGROUND -->
+        <s:Group id="top_left_foreground">
+            <s:Path id="top_left_fg"
+                    alpha="1"
+                    blendMode="normal"
+                    data="M 189 0 C 189 0 0 0 0 0 C 0 11 0 40 0 68 C 0 99 29 126 55 126 C 55 126 184 126 184 126 C 268 131 221 60 285 53 C 285 53 251 55 236 34 C 220 12 189 0 189 0 Z "
+                    winding="evenOdd">
+                <s:fill>
+                    <s:LinearGradient x="143" y="0"
+                                      rotation="90"
+                                      scaleX="126">
+                        <s:GradientEntry alpha="1"
+                                         color="#fbfbf9"
+                                         ratio="0"/>
+                        <s:GradientEntry alpha="1"
+                                         color="#b19f8d"
+                                         ratio="1"/>
+                    </s:LinearGradient>
+                </s:fill>
+            </s:Path>
+        </s:Group>
+        <s:Group width="100%" height="100%">
+            <s:Image id="logo"
+                     x="18" y="33" width="60" height="60"
+                     source="@Embed('assets/images/custom/i_wild_fire.png')"/>
+            <s:RichText x="91" y="{logo.y - 75}"
+                        alpha="1"
+                        blendMode="normal"
+                        fontFamily="Helvetica"
+                        fontSize="41"
+                        fontStyle="normal"
+                        fontWeight="normal"
+                        kerning="off"
+                        whiteSpaceCollapse="preserve">
+                <s:content>
+                    <s:p fontFamily="Helvetica"
+                         fontSize="41"
+                         tracking="-2%">WildFire</s:p>
+                </s:content>
+            </s:RichText>
+        </s:Group>
 
-        <components:GeocoderComponent id="singleLineSearch"
-                                      y="6.5" width="230" height="28"
-                                      right="5"
-                                      includeInLayout="false"
-                                      visible="false"/>
+        <!--
+        COMPONENT THAT HOLDS THE BACKGROUND FOR THE WIDGET TRAY,
+        WIDGET LINKS, GEOCODER COMPONENT, OVERVIEW MAP, AND NAVIGATION CONTROL
+        -->
+        <s:Group id="widgetContainerGroup"
+                 width="100%" height="100%">
 
-        <CustomHeaderController:CustomWidgetItemDataGroup id="widgetItemDG"
-                                                          y="6.5" width="100%"
-                                                          left="{wContainerRect.x + 15}"
-                                                          dataProvider="{widgetItemArrCol}"
-                                                          horizontalCenter="0"
-                                                          widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
-                                                          widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
-                                                          widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
-            <CustomHeaderController:layout>
-                <s:HorizontalLayout gap="12"
-                                    horizontalAlign="center"
-                                    useVirtualLayout="true"
-                                    verticalAlign="middle"/>
-            </CustomHeaderController:layout>
-        </CustomHeaderController:CustomWidgetItemDataGroup>
+            <!-- GRAPHICAL RECTANGLE BEHIND THE WIDGET CONTAINER -->
+            <s:Rect id="wContainerRect"
+                    y="15" width="{this.width - (top_left_bg.width + top_right_bg.width)}" height="30"
+                    left="{top_left_bg.width }"
+                    radiusX="15">
+                <s:stroke>
+                    <s:SolidColorStroke caps="none"
+                                        color="#b19f8d"
+                                        joints="miter"
+                                        miterLimit="4"
+                                        weight="1"/>
+                </s:stroke>
+                <s:fill>
+                    <s:LinearGradient rotation="90">
+                        <s:GradientEntry alpha="1.0"
+                                         color="#fbfbf9"
+                                         ratio="0"/>
+                        <s:GradientEntry alpha="1.0"
+                                         color="#b19f8d"
+                                         ratio="1"/>
+                    </s:LinearGradient>
+                </s:fill>
+            </s:Rect>
+            <!-- GRAPHICAL RECTANGLE BEHIND THE NAVIGATION COMPONENT -->
+            <s:Rect id="navigationRect"
+                    y="100" width="210" height="30"
+                    right="15"
+                    radiusX="15"
+                    rotation="90">
+                <s:stroke>
+                    <s:SolidColorStroke caps="none"
+                                        color="#fbfbf9"
+                                        joints="miter"
+                                        miterLimit="4"
+                                        weight="1"/>
+                </s:stroke>
+                <s:fill>
+                    <s:LinearGradient rotation="90">
+                        <s:GradientEntry alpha="1.0"
+                                         color="#FFFFFF"
+                                         ratio="0"/>
+                        <s:GradientEntry alpha="1.0"
+                                         color="#b19f8d"
+                                         ratio="1"/>
+                    </s:LinearGradient>
+                </s:fill>
+            </s:Rect>
+            <!-- GEOCODER COMPONENT IN TOP RIGHT HEADER CONTROLLER -->
+            <components:GeocoderComponent id="singleLineSearch"
+                                          y="15" width="230" height="30"
+                                          right="5"
+                                          includeInLayout="false"
+                                          visible="false"/>
 
-        <esri:Navigation height="{navigationRect.height - 50}"
-                         left="{NaN}" right="11" top="{navigationRect.y + 4}" bottom="{NaN}"
-                         map="{map}"
-                         skinClass="widgets.CustomHeaderController.CustomNavigationSkin"/>
+            <CustomHeaderController:CustomWidgetItemDataGroup id="widgetItemDG"
+                                                              y="15" width="100%"
+                                                              left="{wContainerRect.x + 15}"
+                                                              dataProvider="{widgetItemArrCol}"
+                                                              horizontalCenter="0"
+                                                              widgetItemClick="widgetItemDG_widgetItemClickHandler(event)"
+                                                              widgetItemMouseOut="widgetItemDG_widgetItemMouseOutHandler(event)"
+                                                              widgetItemMouseOver="widgetItemDG_widgetItemMouseOverHandler(event)">
+                <CustomHeaderController:layout>
+                    <s:HorizontalLayout gap="12"
+                                        horizontalAlign="center"
+                                        useVirtualLayout="true"
+                                        verticalAlign="middle"/>
+                </CustomHeaderController:layout>
+            </CustomHeaderController:CustomWidgetItemDataGroup>
+
+            <esri:Navigation height="{navigationRect.height - 50}"
+                             left="{NaN}" right="{19}" top="{navigationRect.y + 10}" bottom="{NaN}"
+                             map="{map}"
+                             skinClass="widgets.CustomHeaderController.CustomNavigationSkin"/>
+        </s:Group>
+
+        <!-- drop shadow on header controller -->
+        <s:filters>
+            <s:DropShadowFilter alpha="0.65"
+                                angle="45"
+                                blurX="4"
+                                blurY="4"
+                                color="#000000"
+                                distance="7"
+                                quality="2"/>
+        </s:filters>
     </s:Group>
 </viewer:BaseWidget>
